@@ -1,0 +1,34 @@
+[
+  {
+    "account": {
+      "username": "",
+      "password": ""
+    },
+    "userError": "Va rugam sa specificati o adresa de email",
+    "passwordError": "Parola trebuie sa contina minim 8 caractere"
+  },
+  {
+    "account": {
+      "username": "user1",
+      "password": ""
+    },
+    "userError": "Adresa de email nu este corecta",
+    "passwordError": "Parola trebuie sa contina minim 8 caractere"
+  },
+  {
+    "account": {
+      "username": "",
+      "password": "test"
+    },
+    "userError": "Va rugam sa specificati o adresa de email",
+    "passwordError": ""
+  },
+  {
+    "account": {
+      "username": "user1",
+      "password": "test"
+    },
+    "userError": "Adresa de email nu este corecta",
+    "passwordError": ""
+  }
+]
