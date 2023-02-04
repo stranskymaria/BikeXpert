@@ -39,7 +39,6 @@ public class LoginTests extends BaseTest{
         test = ExtentTestManager.startTest(method.getName(), "");
 //       open login page
         System.out.println("Open Login page");
-        driver.get(baseUrl);
         MainPage mp = new MainPage(driver);
         mp.agreeCookies();
         mp.loginPage();
@@ -81,7 +80,6 @@ public class LoginTests extends BaseTest{
         test = ExtentTestManager.startTest(method.getName(), "");
 //       open login page
         System.out.println("Open Login page");
-        driver.get(baseUrl);
         MainPage mp = new MainPage(driver);
         mp.agreeCookies();
         mp.loginPage();

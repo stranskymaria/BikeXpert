@@ -3,6 +3,7 @@ package Utils;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.sql.Timestamp;
 import java.util.Properties;
 import java.util.Random;
 
@@ -18,6 +19,22 @@ public class GenericUtils {
             sb.append(x);
         }
         return sb.toString();
+    }
+
+    public static String createRandomNumber(int charCount) {
+        StringBuilder sb = new StringBuilder();
+        String charset = "0123456789";
+        for (int i=0; i < charCount; i++) {
+            Random r = new Random();
+            char x = charset.toCharArray()[r.nextInt(charset.length())];
+            sb.append(x);
+        }
+       return sb.toString();
+    }
+
+    public static String createEmailTimestamp(String email) {
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        return email + timestamp.getTime() + "@gmail.com";
     }
 
     public static String createBaseUrl(String configFile) {

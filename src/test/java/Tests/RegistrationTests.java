@@ -2,17 +2,13 @@ package Tests;
 
 import Pages.MainPage;
 import Pages.RegistrationPage;
-import Tests.ObjectModels.LoginModel;
 import Tests.ObjectModels.RegistrationModel;
 import Utils.ExtentTestManager;
+import Utils.GenericUtils;
 import Utils.Tools;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
-import java.io.File;
-import java.io.IOException;
 import java.lang.reflect.Method;
 import java.sql.*;
 import java.util.ArrayList;
@@ -53,7 +49,6 @@ public class RegistrationTests extends BaseTest{
     @Test
     public void termsCheckboxTest(Method method) {
         test = ExtentTestManager.startTest(method.getName(), "");
-        driver.get(baseUrl);
         MainPage mp = new MainPage(driver);
         mp.agreeCookies();
         mp.registrationPage();
@@ -75,7 +70,7 @@ public class RegistrationTests extends BaseTest{
             Connection connection = DriverManager.getConnection("jdbc:mysql://" + dbHostname + ":" + dbPort
                     + "/" + dbSchema, dbUser, new String(base64.decode(dbPassword.getBytes())));
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM negative_registration");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM registration WHERE id = 1 OR id = 2 OR id = 3 OR id = 4");
             while (resultSet.next()) {
                 RegistrationModel rm = new RegistrationModel(getEscapedElement(resultSet, "firstName"),
                         getEscapedElement(resultSet, "lastName"),
@@ -107,7 +102,6 @@ public class RegistrationTests extends BaseTest{
         test = ExtentTestManager.startTest(method.getName(), "");
 //       open registration page
         System.out.println("Open Login page");
-        driver.get(baseUrl);
         MainPage mp = new MainPage(driver);
         mp.agreeCookies();
         mp.registrationPage();
@@ -164,7 +158,7 @@ public class RegistrationTests extends BaseTest{
             Connection connection = DriverManager.getConnection("jdbc:mysql://" + dbHostname + ":" + dbPort
                     + "/" + dbSchema, dbUser, new String(base64.decode(dbPassword.getBytes())));
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM positive_registration");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM registration WHERE id = 5");
             while (resultSet.next()) {
                 RegistrationModel rm = new RegistrationModel(getEscapedElement(resultSet, "firstName"),
                         getEscapedElement(resultSet, "lastName"),
@@ -191,7 +185,6 @@ public class RegistrationTests extends BaseTest{
         test = ExtentTestManager.startTest(method.getName(), "");
 //       open registration page
         System.out.println("Open Login page");
-        driver.get(baseUrl);
         MainPage mp = new MainPage(driver);
         mp.agreeCookies();
         mp.registrationPage();
@@ -201,11 +194,11 @@ public class RegistrationTests extends BaseTest{
 
         RegistrationPage rp = new RegistrationPage(driver);
 
-//        registration
+//        registration with random phone number and email with timestamp
         rp.registration(rm.getAccount().getFirstName(),
                 rm.getAccount().getLastName(),
-                rm.getAccount().getPhone(),
-                rm.getAccount().getEmail(),
+                rm.getAccount().getPhone() + GenericUtils.createRandomNumber(6),
+                GenericUtils.createEmailTimestamp(rm.getAccount().getEmail()),
                 rm.getAccount().getPassword(),
                 rm.getAccount().getConfirmPassword());
         rp.termsCheckbox();

@@ -1,11 +1,8 @@
 package Pages;
 
+import Utils.GenericUtils;
 import org.openqa.selenium.*;
 import org.testng.Assert;
-
-import java.util.List;
-
-import static java.lang.Thread.sleep;
 
 public class RegistrationPage extends BasePage {
 
@@ -246,10 +243,6 @@ public class RegistrationPage extends BasePage {
     return false;
     }
 
-//    public void agreeCookies() {
-//        WebElement agreeCookies = driver.findElement(By.cssSelector(agreeCookiesSelector));
-//        agreeCookies.click();
-//    }
 
     public void termsCheckbox() {
 

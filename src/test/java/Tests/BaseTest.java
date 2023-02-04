@@ -42,6 +42,8 @@ public class BaseTest {
         dbPassword = GenericUtils.getDBPassword(usedConfig);
         dbPort = GenericUtils.getDBPort(usedConfig);
         dbSchema = GenericUtils.getDBSchema(usedConfig);
+
+        driver.get(baseUrl);
     }
 
     @AfterMethod
