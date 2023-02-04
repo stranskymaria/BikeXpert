@@ -4,38 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a23810a2-577d-40ea-b470-7099d3183ff2" name="Changes" comment="Creating MyProject">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Pages/BasePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Pages/LoginPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Pages/MainPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Pages/RegistrationPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Tests/BaseTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Tests/LoginTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Tests/ObjectModels/LoginAccountModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Tests/ObjectModels/LoginModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Tests/ObjectModels/RegistrationAccountModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Tests/ObjectModels/RegistrationModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Tests/RegistrationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Utils/Browser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Utils/BrowserTypes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Utils/BrowserUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Utils/ChromeBrowser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Utils/ConfigUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Utils/ConstantUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Utils/EdgeBrowser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Utils/ExtentManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Utils/ExtentTestListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Utils/ExtentTestManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Utils/FirefoxBrowser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Utils/GenericUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Utils/SeleniumUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Utils/Tools.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/config.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/data/negativelogin.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/data/negativeregistration.json" afterDir="false" />
+    <list default="true" id="a23810a2-577d-40ea-b470-7099d3183ff2" name="Changes" comment="Negative login and registration tests">
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data/positive_login.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Pages/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Pages/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/MainPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Pages/RegistrationPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/RegistrationPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Tests/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/LoginTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Tests/ObjectModels/LoginAccountModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/ObjectModels/LoginAccountModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Tests/ObjectModels/LoginModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/ObjectModels/LoginModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Tests/RegistrationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/RegistrationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/data/negativelogin.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/data/negative_login.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/data/negativeregistration.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,8 +53,8 @@
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;
   }
 }</component>
-  <component name="RunManager" selected="TestNG.RegistrationTests.registrationWithDBTest">
-    <configuration name="LoginTests.loginDpTest" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="TestNG.LoginTests.positiveLoginWithJsonTest">
+    <configuration name="LoginTests.negativeLoginWithJsonTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="MyProject" />
       <extension name="coverage">
         <pattern>
@@ -84,7 +64,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
       <option name="MAIN_CLASS_NAME" value="Tests.LoginTests" />
-      <option name="METHOD_NAME" value="loginDpTest" />
+      <option name="METHOD_NAME" value="negativeLoginWithJsonTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -92,7 +72,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTests.loginWithJsonTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginTests.positiveLoginWithJsonTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="MyProject" />
       <extension name="coverage">
         <pattern>
@@ -102,7 +82,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
       <option name="MAIN_CLASS_NAME" value="Tests.LoginTests" />
-      <option name="METHOD_NAME" value="loginWithJsonTest" />
+      <option name="METHOD_NAME" value="positiveLoginWithJsonTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -110,7 +90,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegistrationTests.registrationWithDBTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="RegistrationTests.negativeRegistrationWithDBTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="MyProject" />
       <extension name="coverage">
         <pattern>
@@ -120,7 +100,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
       <option name="MAIN_CLASS_NAME" value="Tests.RegistrationTests" />
-      <option name="METHOD_NAME" value="registrationWithDBTest" />
+      <option name="METHOD_NAME" value="negativeRegistrationWithDBTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -128,7 +108,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegistrationTests.registrationWithDBTestPositive" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="RegistrationTests.positiveRegistrationWithDBTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="MyProject" />
       <extension name="coverage">
         <pattern>
@@ -138,7 +118,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
       <option name="MAIN_CLASS_NAME" value="Tests.RegistrationTests" />
-      <option name="METHOD_NAME" value="registrationWithDBTestPositive" />
+      <option name="METHOD_NAME" value="positiveRegistrationWithDBTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -146,7 +126,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegistrationTests.termsCheckboxTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="RegistrationTests.positiveRegistrationWithJsonTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="MyProject" />
       <extension name="coverage">
         <pattern>
@@ -156,7 +136,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
       <option name="MAIN_CLASS_NAME" value="Tests.RegistrationTests" />
-      <option name="METHOD_NAME" value="termsCheckboxTest" />
+      <option name="METHOD_NAME" value="positiveRegistrationWithJsonTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -166,11 +146,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.RegistrationTests.registrationWithDBTest" />
-        <item itemvalue="TestNG.LoginTests.loginWithJsonTest" />
-        <item itemvalue="TestNG.RegistrationTests.termsCheckboxTest" />
-        <item itemvalue="TestNG.RegistrationTests.registrationWithDBTestPositive" />
-        <item itemvalue="TestNG.LoginTests.loginDpTest" />
+        <item itemvalue="TestNG.LoginTests.positiveLoginWithJsonTest" />
+        <item itemvalue="TestNG.LoginTests.negativeLoginWithJsonTest" />
+        <item itemvalue="TestNG.RegistrationTests.negativeRegistrationWithDBTest" />
+        <item itemvalue="TestNG.RegistrationTests.positiveRegistrationWithDBTest" />
+        <item itemvalue="TestNG.RegistrationTests.positiveRegistrationWithJsonTest" />
       </list>
     </recent_temporary>
   </component>
@@ -197,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675286300135</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Negative login and registration tests">
+      <created>1675459414509</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1675459414509</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -213,22 +200,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Creating MyProject" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creating MyProject" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/Pages/RegistrationPage.java</url>
-          <line>261</line>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/Tests/RegistrationTests.java</url>
-          <line>117</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Negative login and registration tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Negative login and registration tests" />
   </component>
 </project>

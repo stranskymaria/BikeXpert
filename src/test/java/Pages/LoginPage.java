@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
-// This is classic Page Object Model
 public class LoginPage extends BasePage {
 
 //    private String pageTextSelector = "//*[@id=\"svelte\"]/div[1]/div[2]/div[2]/h1";
@@ -16,10 +15,10 @@ public class LoginPage extends BasePage {
 //    private String usernameLabelSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(1) > label";
 //    private String passwordLabelSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(2) > label";
 
-    private String usernameInputSelector = "#login > form > div:nth-child(5) > div > input"; //CSS
+    private String emailInputSelector = "#login > form > div:nth-child(5) > div > input"; //CSS
     private String passwordInputSelector = "#login > form > div:nth-child(6) > div > input"; //CSS
     private String submitButtonSelector = "#login > form > div.form-actions > div > button"; //CSS
-    private String usernameErrorSelector = "cs_customer_email-error"; //ID
+    private String emailErrorSelector = "cs_customer_email-error"; //ID
     private String passwordErrorSelector = "cs_customer_password-error"; //ID
 
     public LoginPage(WebDriver driver) {
@@ -30,27 +29,27 @@ public class LoginPage extends BasePage {
 //        Assert.assertEquals(driver.findElement(By.xpath(pageTextSelector)).getText(), "Sign in");
 //    }
 
-    public void login(String username, String password, String userError, String passError) {
-        login(username, password);
-        Assert.assertEquals(getUsernameError(), userError);
-        Assert.assertEquals(getPasswordError(), passError);
-    }
+//    public void login(String email, String password, String emailError, String passError) {
+//        login(email, password);
+//        Assert.assertEquals(getEmailError(), emailError);
+//        Assert.assertEquals(getPasswordError(), passError);
+//    }
 
-    public void login(String username, String password) {
-        WebElement usernameInput = driver.findElement(By.cssSelector(usernameInputSelector));
+    public void login(String email, String password) {
+        WebElement emailInput = driver.findElement(By.cssSelector(emailInputSelector));
         WebElement passwordInput = driver.findElement(By.cssSelector(passwordInputSelector));
         WebElement submitButton = driver.findElement(By.cssSelector(submitButtonSelector));
 
-        usernameInput.clear();
-        usernameInput.sendKeys(username);
+        emailInput.clear();
+        emailInput.sendKeys(email);
         passwordInput.clear();
         passwordInput.sendKeys(password);
         submitButton.submit();
 
     }
 
-    public String getUsernameError() {
-        return driver.findElement(By.id(usernameErrorSelector)).getText();
+    public String getEmailError() {
+        return driver.findElement(By.id(emailErrorSelector)).getText();
     }
 
     public String getPasswordError() {
@@ -58,10 +57,10 @@ public class LoginPage extends BasePage {
     }
 
     public boolean checkErr(String expectedErr, String errorType) {
-        if (errorType.equalsIgnoreCase("userErr")) {
+        if (errorType.equalsIgnoreCase("emailErr")) {
             if (expectedErr.length() > 0) {
-                System.out.println("Actual user error: " + getUsernameError());
-                return expectedErr.equals(getUsernameError());
+                System.out.println("Actual email error: " + getEmailError());
+                return expectedErr.equals(getEmailError());
             } else return true;
         } else if (errorType.equalsIgnoreCase("passErr")) {
             if (expectedErr.length() > 0) {
@@ -71,7 +70,5 @@ public class LoginPage extends BasePage {
         }
         return false;
     }
-
-
 
 }

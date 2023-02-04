@@ -16,24 +16,34 @@ public class MainPage extends BasePage{
 
     private String agreeCookiesSelector = "body > section > div.container > header > div.smaller_right > input"; //CSS
 
-    private String accountSelector = "#login-link > i.t-config-usericon-color.fa-user.fa"; //CSS
+    private String accountButtonSelector = "#login-link > i.t-config-usericon-color.fa-user.fa"; //CSS
 
-    private String enterAccountSelector = "#header > div.top-header-section.t-top-header-background > div > div.right-section.users-box-section.cf > div.box-user.left > div > div > div > div.buttons-login > a"; //CSS
+    private String loginButtonSelector = "#header > div.top-header-section.t-top-header-background > div > div.right-section.users-box-section.cf > div.box-user.left > div > div > div > div.buttons-login > a"; //CSS
 
+    private String registerButtonSelector = "#header > div.top-header-section.t-top-header-background > div > div.right-section.users-box-section.cf > div.box-user.left > div > div > div > div.no-accont > a"; //CSS
     public MainPage(WebDriver driver) {
         super(driver);
     }
 
     public void agreeCookies() {
-        WebElement agreeCookies = driver.findElement(By.cssSelector(agreeCookiesSelector));
-        agreeCookies.click();
+        WebElement agreeCookiesButton = driver.findElement(By.cssSelector(agreeCookiesSelector));
+        if (agreeCookiesButton.isDisplayed()) {
+            agreeCookiesButton.click();
+        }
     }
 
-    public void account() {
-        WebElement account = driver.findElement(By.cssSelector(accountSelector));
-        account.click();
-        WebElement enterAccount = driver.findElement(By.cssSelector(enterAccountSelector));
-        enterAccount.click();
+    public void loginPage() {
+        WebElement accountButton = driver.findElement(By.cssSelector(accountButtonSelector));
+        accountButton.click();
+        WebElement loginButton = driver.findElement(By.cssSelector(loginButtonSelector));
+        loginButton.click();
+    }
+
+    public void registrationPage() {
+        WebElement accountButton = driver.findElement(By.cssSelector(accountButtonSelector));
+        accountButton.click();
+        WebElement registrationButton = driver.findElement(By.cssSelector(registerButtonSelector));
+        registrationButton.click();
     }
 
 //    public void goToAlerts()

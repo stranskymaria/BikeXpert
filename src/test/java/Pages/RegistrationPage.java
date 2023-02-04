@@ -132,7 +132,6 @@ public class RegistrationPage extends BasePage {
         WebElement emailInput = driver.findElement(By.cssSelector(emailInputSelector));
         WebElement passwordInput = driver.findElement(By.cssSelector(passwordInputSelector));
         WebElement confirmPasswordInput = driver.findElement(By.cssSelector(confirmPasswordInputSelector));
-        WebElement submitButton = driver.findElement(By.cssSelector(submitButtonSelector));
 
         firstNameInput.clear();
         firstNameInput.sendKeys(firstName);
@@ -146,7 +145,6 @@ public class RegistrationPage extends BasePage {
         passwordInput.sendKeys(password);
         confirmPasswordInput.clear();
         confirmPasswordInput.sendKeys(confirmPassword);
-        submitButton.submit();
     }
 
     public void submitRegistration() {
