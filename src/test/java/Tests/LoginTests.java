@@ -18,14 +18,23 @@ import java.util.Iterator;
 
 public class LoginTests extends BaseTest{
 
-    @DataProvider(name = "negativeLoginJsonDp")
-    public Iterator<Object[]> jsonDpCollection() throws IOException {
+    @DataProvider(name = "loginJsonDp")
+    public Iterator<Object[]> JsonDpCollection(Method method) throws IOException {
         Collection<Object[]> dp = new ArrayList<>();
 
 //      here is starting deserialization of json into LoginModel object
         ObjectMapper objectMapper = new ObjectMapper();
 
-        File f = new File("src\\test\\resources\\data\\negative_login.json");
+        String pathName;
+        if (method.getName().equals("negativeLoginWithJsonTest")) {
+            pathName = "src\\test\\resources\\data\\negative_login.json";
+        } else if (method.getName().equals("positiveLoginWithJsonTest")) {
+            pathName = "src\\test\\resources\\data\\positive_login.json";
+        } else {
+            throw new IllegalArgumentException("Method name not recognized. Please check the test method name.");
+        }
+
+        File f = new File(pathName);
         LoginModel[] lms = objectMapper.readValue(f, LoginModel[].class);
 
         for (LoginModel lm : lms)
@@ -34,7 +43,7 @@ public class LoginTests extends BaseTest{
         return dp.iterator();
     }
 
-    @Test(dataProvider = "negativeLoginJsonDp")
+    @Test(dataProvider = "loginJsonDp")
     public void negativeLoginWithJsonTest(LoginModel lm, Method method) {
         test = ExtentTestManager.startTest(method.getName(), "");
 //       open login page
@@ -59,23 +68,7 @@ public class LoginTests extends BaseTest{
         System.out.println("Expected password error: " + lm.getPasswordError() + " \n");
     }
 
-    @DataProvider(name = "positiveLoginJsonDp")
-    public Iterator<Object[]> positiveJsonDpCollection() throws IOException {
-        Collection<Object[]> dp = new ArrayList<>();
-
-//      here is starting deserialization of json into LoginModel object
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        File f = new File("src\\test\\resources\\data\\positive_login.json");
-        LoginModel[] lms = objectMapper.readValue(f, LoginModel[].class);
-
-        for (LoginModel lm : lms)
-            dp.add(new Object[]{lm});
-
-        return dp.iterator();
-    }
-
-    @Test(dataProvider = "positiveLoginJsonDp")
+    @Test(dataProvider = "loginJsonDp")
     public void positiveLoginWithJsonTest(LoginModel lm, Method method) {
         test = ExtentTestManager.startTest(method.getName(), "");
 //       open login page
