@@ -1,5 +1,6 @@
 package Pages;
 
+import Utils.SeleniumUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,14 +23,15 @@ public class RegistrationConfirmationPage extends BasePage {
     }
 
     public void registrationConfirmation() {
-        WebElement changeButton = driver.findElement(By.cssSelector(changeButtonSelector));
 
-        Assert.assertEquals(driver.findElement(By.cssSelector(confirmationMessageSelector)).getText(), "ITI MULTUMIM, CONTUL TAU A FOST CREAT ! Vei primi confirmarea pe email.\n" +
+        WebElement confirmationMessage = SeleniumUtils.waitForGenericElement(driver, By.cssSelector(confirmationMessageSelector), 10);
+        Assert.assertEquals(confirmationMessage, "ITI MULTUMIM, CONTUL TAU A FOST CREAT ! Vei primi confirmarea pe email.\n" +
                 "Doresti sa plasezi o comanda ? Completeaza detaliile de livrare rapid, in doar cateva secunde.");
         Assert.assertEquals(driver.findElement(By.cssSelector(myInfoLabelSelector)).getText(), "Datele mele");
         Assert.assertEquals(driver.findElement(By.cssSelector(nameLabelSelector)).getText(), "Nume:");
         Assert.assertEquals(driver.findElement(By.cssSelector(emailLabelSelector)).getText(), "Adresa e-mail:");
         Assert.assertEquals(driver.findElement(By.cssSelector(phoneLabelSelector)).getText(), "Telefon:");
+        WebElement changeButton = driver.findElement(By.cssSelector(changeButtonSelector));
         Assert.assertTrue(changeButton.isDisplayed());
         Assert.assertEquals(changeButton.getText(), "Modifica");
     }

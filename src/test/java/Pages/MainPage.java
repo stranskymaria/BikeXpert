@@ -1,6 +1,7 @@
 package Pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -41,6 +42,8 @@ public class MainPage extends BasePage{
 
     public void registrationPage() {
         WebElement accountButton = driver.findElement(By.cssSelector(accountButtonSelector));
+//        JavascriptExecutor jse = (JavascriptExecutor)driver;
+//        jse.executeScript("arguments[0].click();", accountButton);
         accountButton.click();
         WebElement registrationButton = driver.findElement(By.cssSelector(registerButtonSelector));
         registrationButton.click();

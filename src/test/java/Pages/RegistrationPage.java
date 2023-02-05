@@ -1,7 +1,9 @@
 package Pages;
 
 import Utils.GenericUtils;
+import Utils.SeleniumUtils;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class RegistrationPage extends BasePage {
@@ -17,7 +19,7 @@ public class RegistrationPage extends BasePage {
     private String passwordConditionSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(3) > small";
     private String confirmPasswordLabelSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(4) > label";
     private String confirmPasswordConditionSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(4) > small";
-    private String titleLabelSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(6) > label";
+    private String appellationLabelSelector = "#register > form > div:nth-child(4) > label"; //CSS
     private String mrLabelSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(6) > div:nth-child(2) > label";
     private String msLabelSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(6) > div:nth-child(3) > label";
     private String firstNameLabelSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(7) > label";
@@ -29,16 +31,6 @@ public class RegistrationPage extends BasePage {
     private String birthdayLabelSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(10) > label";
     private String nationalityLabelSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(11) > label";
     private String termsLabelSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(12) > div > label";
-
-    //fields icons selectors
-    private String usernameIconSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(2) > div > span > i";
-    private String passwordIconSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(3) > div > span > i";
-    private String confirmPasswordIconSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(4) > div > span > i";
-    private String firstNameIconSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(7) > div > span > i";
-    private String lastNameIconSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(8) > div > span > i";
-    private String emailIconSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(9) > div > span > i";
-    private String birthdayIconSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(10) > div > span > i";
-    private String nationalityIconSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(11) > div > span > i";
 
     //input selectors
     private String firstNameInputSelector = "#register > form > div:nth-child(5) > div > input"; //CSS
@@ -52,6 +44,14 @@ public class RegistrationPage extends BasePage {
     private String confirmPasswordInputSelector = "#register > form > div:nth-child(10) > div > input"; //CSS
     private String submitButtonSelector = "#register > form > div.form-actions.col-8 > button"; //CSS
 
+    private String termsCheckboxSelector = "terms"; //CSS
+
+    private String dnaRadioButtonSelector = "salutation_1"; //ID
+
+    private String draRadioButtonSelector = "salutation_2"; //ID
+
+    private String dlRadioButtonSelector = "salutation_3"; //ID
+
     //errors selectors
     private String firstNameErrorSelector = "#register > form > div:nth-child(5) > div > span"; //CSS
 
@@ -62,9 +62,7 @@ public class RegistrationPage extends BasePage {
 
     private String confirmPasswordErrorSelector = "#register > form > div:nth-child(10) > div > span"; //CSS
     private String termsErrorSelector = "#register > form > div.form-group.margin-top-10.margin-bottom-10.has-error > span"; //CSS
-    private String termsCheckboxSelector = "terms"; //CSS
 
-    private String agreeCookiesSelector = "body > section > div.container > header > div.smaller_right > input"; //CSS
 
     public RegistrationPage(WebDriver driver) {
         super(driver);
@@ -146,7 +144,9 @@ public class RegistrationPage extends BasePage {
 
     public void submitRegistration() {
         WebElement submitButton = driver.findElement(By.cssSelector(submitButtonSelector));
+//        WebElement submitButton = SeleniumUtils.waitForGenericElement(driver, By.cssSelector(submitButtonSelector), 10);
         submitButton.submit();
+
     }
 
     public String getFirstNameError() {
@@ -177,30 +177,6 @@ public class RegistrationPage extends BasePage {
         return driver.findElement(By.cssSelector(termsErrorSelector)).getText();
     }
 
-//    public void errorsRegistration() {
-//        List<WebElement> errors = driver.findElements(By.className("form-error"));
-//        if (errors.size() != 0){
-//            //If list size is non-zero, element is present
-//            System.err.println("\nErrors are present!");
-//           Assert.assertEquals(errors.size(), 0);
-//        }
-//    }
-
-//    public boolean checkRegErr(String expectedErr, String errorType) {
-//        if (errorType.equalsIgnoreCase("confirmPasswordErr")) {
-//            if (expectedErr.length() > 0) {
-//                System.out.println("Actual user error:" + getConfirmPasswordError());
-//                return expectedErr.equals(getConfirmPasswordError());
-//            } else return true;
-//    } else if (errorType.equalsIgnoreCase("firstNameErr")) {
-//            System.out.println("Actual first error:" + getFirstNameError());
-//            return expectedErr.equalsIgnoreCase(getFirstNameError());
-//        } if (errorType.equalsIgnoreCase("lastNameErr")) {
-//            System.out.println("Actual pass error:" + getLastNameError());
-//            return expectedErr.equalsIgnoreCase(getLastNameError());
-//        }
-
-//        return false;}
 
     public boolean checkRegErr(String expectedErrFromDb, String errorTypeFromSite) {
         switch (errorTypeFromSite) {
@@ -245,12 +221,49 @@ public class RegistrationPage extends BasePage {
 
 
     public void termsCheckbox() {
-
+//        WebElement terms = SeleniumUtils.waitForGenericElement(driver, By.id(termsCheckboxSelector), 10);
         WebElement terms = driver.findElement(By.id(termsCheckboxSelector));
 //        terms.click();
         JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeScript("arguments[0].click();", terms);
         Assert.assertTrue(terms.isSelected());
+    }
+
+    public void appellationRadioButtons() {
+        //test number of radio buttons
+        Assert.assertEquals(driver.findElements(By.name("salutation")).size(), 3);
+
+        WebElement radio1 = driver.findElement(By.id(dnaRadioButtonSelector));
+        WebElement radio2 = driver.findElement(By.id(draRadioButtonSelector));
+        WebElement radio3 = driver.findElement(By.id(dlRadioButtonSelector));
+
+        Assert.assertTrue(radio1.isDisplayed());
+        Assert.assertTrue(radio2.isDisplayed());
+        Assert.assertTrue(radio3.isDisplayed());
+
+        //test all three radios are unselected by default
+        Assert.assertFalse(radio1.isSelected());
+        Assert.assertFalse(radio2.isSelected());
+        Assert.assertFalse(radio3.isSelected());
+
+        //test radio1 select, radio2, 3 remains unselected
+        radio1.click();
+        Assert.assertTrue(radio1.isSelected());
+        Assert.assertFalse(radio2.isSelected());
+        Assert.assertFalse(radio3.isSelected());
+
+
+        //test radio2 select, radio1,3 becomes unselected
+        radio2.click();
+        Assert.assertFalse(radio1.isSelected());
+        Assert.assertTrue(radio2.isSelected());
+        Assert.assertFalse(radio3.isSelected());
+
+        //test radio3 select, radio2,3 becomes unselected
+        radio2.click();
+        Assert.assertFalse(radio1.isSelected());
+        Assert.assertFalse(radio2.isSelected());
+        Assert.assertTrue(radio3.isSelected());
     }
 
 //    public String getCurrentUrl() {

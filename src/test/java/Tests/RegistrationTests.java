@@ -6,7 +6,10 @@ import Pages.RegistrationPage;
 import Tests.ObjectModels.RegistrationModel;
 import Utils.ExtentTestManager;
 import Utils.GenericUtils;
+import Utils.SeleniumUtils;
 import Utils.Tools;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -158,7 +161,7 @@ public class RegistrationTests extends BaseTest{
     public void positiveRegistrationWithDBTest(RegistrationModel rm, Method method) {
         test = ExtentTestManager.startTest(method.getName(), "");
 //       open registration page
-        System.out.println("Open Login page");
+        System.out.println("Open Registration page");
         MainPage mp = new MainPage(driver);
         mp.agreeCookies();
         mp.registrationPage();
@@ -169,10 +172,13 @@ public class RegistrationTests extends BaseTest{
         RegistrationPage rp = new RegistrationPage(driver);
 
 //        registration with random phone number and email with timestamp
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        String timestampEmail = timestamp.getTime() + "@gmail.com";
+        String randomNumber = GenericUtils.createRandomNumber(6);
         rp.registration(rm.getAccount().getFirstName(),
                 rm.getAccount().getLastName(),
-                rm.getAccount().getPhone() + GenericUtils.createRandomNumber(6),
-                GenericUtils.createEmailTimestamp(rm.getAccount().getEmail()),
+                rm.getAccount().getPhone() + randomNumber,
+                rm.getAccount().getEmail() + timestampEmail,
                 rm.getAccount().getPassword(),
                 rm.getAccount().getConfirmPassword());
         rp.termsCheckbox();
@@ -181,9 +187,19 @@ public class RegistrationTests extends BaseTest{
         RegistrationConfirmationPage rcp = new RegistrationConfirmationPage(driver);
         rcp.registrationConfirmation();
         Assert.assertEquals(rcp.getNameValue(), rm.getAccount().getLastName() + " " + rm.getAccount().getFirstName());
-//        Assert.assertEquals(rcp.getEmailValue(), GenericUtils.createEmailTimestamp(rm.getAccount().getEmail()));
-//        Assert.assertEquals(rcp.getPhoneValue(), rm.getAccount().getPhone() + GenericUtils.createRandomNumber(6));
+        Assert.assertEquals(rcp.getEmailValue(), rm.getAccount().getEmail() + timestampEmail);
+        Assert.assertEquals(rcp.getPhoneValue(), rm.getAccount().getPhone() + randomNumber);
 
+    }
+
+    @Test
+    public void appellationRadioButtonsTest(Method method) {
+        test = ExtentTestManager.startTest(method.getName(), "");
+        MainPage mp = new MainPage(driver);
+        mp.agreeCookies();
+        mp.registrationPage();
+        RegistrationPage rp = new RegistrationPage(driver);
+        rp.appellationRadioButtons();
     }
 
 

@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a23810a2-577d-40ea-b470-7099d3183ff2" name="Changes" comment="Changes to use the same JSON data provider with different files for different tests">
-      <change afterPath="$PROJECT_DIR$/src/test/java/Pages/MyAccountPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Pages/RegistrationConfirmationPage.java" afterDir="false" />
+    <list default="true" id="a23810a2-577d-40ea-b470-7099d3183ff2" name="Changes" comment="Changes to use the same SQL data provider with different data sets from DB for different tests&#10;Assert added for positive login and registration">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Tests/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/LoginTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Pages/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/MainPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Pages/RegistrationConfirmationPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/RegistrationConfirmationPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Pages/RegistrationPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/RegistrationPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Tests/RegistrationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/RegistrationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,25 +47,7 @@
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;
   }
 }</component>
-  <component name="RunManager" selected="TestNG.LoginTests.positiveLoginWithJsonTest">
-    <configuration name="LoginTests.negativeLoginWithJsonTest" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="MyProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.LoginTests" />
-      <option name="METHOD_NAME" value="negativeLoginWithJsonTest" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="TestNG.RegistrationTests.termsCheckboxTest">
     <configuration name="LoginTests.positiveLoginWithJsonTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="MyProject" />
       <extension name="coverage">
@@ -77,6 +59,24 @@
       <option name="PACKAGE_NAME" value="Tests" />
       <option name="MAIN_CLASS_NAME" value="Tests.LoginTests" />
       <option name="METHOD_NAME" value="positiveLoginWithJsonTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegistrationTests.appellationRadioButtonsTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="MyProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.RegistrationTests" />
+      <option name="METHOD_NAME" value="appellationRadioButtonsTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -140,11 +140,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.LoginTests.positiveLoginWithJsonTest" />
-        <item itemvalue="TestNG.RegistrationTests.positiveRegistrationWithDBTest" />
-        <item itemvalue="TestNG.RegistrationTests.negativeRegistrationWithDBTest" />
-        <item itemvalue="TestNG.LoginTests.negativeLoginWithJsonTest" />
         <item itemvalue="TestNG.RegistrationTests.termsCheckboxTest" />
+        <item itemvalue="TestNG.RegistrationTests.appellationRadioButtonsTest" />
+        <item itemvalue="TestNG.RegistrationTests.negativeRegistrationWithDBTest" />
+        <item itemvalue="TestNG.RegistrationTests.positiveRegistrationWithDBTest" />
+        <item itemvalue="TestNG.LoginTests.positiveLoginWithJsonTest" />
       </list>
     </recent_temporary>
   </component>
@@ -199,7 +199,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675549149533</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Changes to use the same SQL data provider with different data sets from DB for different tests&#10;Assert added for positive login and registration">
+      <created>1675559678884</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1675559678884</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -219,6 +226,28 @@
     <MESSAGE value="Positive login and registration tests" />
     <MESSAGE value="Added GenericUtils methods for random number, email with timestamp, added random phone number, email with timestamp fot positive registration tests" />
     <MESSAGE value="Changes to use the same JSON data provider with different files for different tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes to use the same JSON data provider with different files for different tests" />
+    <MESSAGE value="Changes to use the same SQL data provider with different data sets from DB for different tests&#10;Assert added for positive login and registration" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes to use the same SQL data provider with different data sets from DB for different tests&#10;Assert added for positive login and registration" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/Tests/RegistrationTests.java</url>
+          <line>198</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/Tests/RegistrationTests.java</url>
+          <line>199</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/Tests/RegistrationTests.java</url>
+          <line>201</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
