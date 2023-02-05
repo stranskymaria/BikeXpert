@@ -12,6 +12,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
+import java.sql.Timestamp;
+
 public class BaseTest {
 
     public WebDriver driver;
@@ -25,6 +27,10 @@ public class BaseTest {
     String baseUrl = GenericUtils.createBaseUrl(usedConfig);
     Base64 base64 = new Base64();
     ExtentTest test;
+
+    Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+    String timestampEmail = timestamp.getTime() + "@gmail.com";
+    String randomNumber = GenericUtils.createRandomNumber(6);
 
     @BeforeTest
     public void beforeTest() {
@@ -43,7 +49,6 @@ public class BaseTest {
         dbPort = GenericUtils.getDBPort(usedConfig);
         dbSchema = GenericUtils.getDBSchema(usedConfig);
 
-        driver.get(baseUrl);
     }
 
     @AfterMethod

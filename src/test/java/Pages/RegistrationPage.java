@@ -1,9 +1,6 @@
 package Pages;
 
-import Utils.GenericUtils;
-import Utils.SeleniumUtils;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class RegistrationPage extends BasePage {
@@ -144,9 +141,8 @@ public class RegistrationPage extends BasePage {
 
     public void submitRegistration() {
         WebElement submitButton = driver.findElement(By.cssSelector(submitButtonSelector));
-//        WebElement submitButton = SeleniumUtils.waitForGenericElement(driver, By.cssSelector(submitButtonSelector), 10);
-        submitButton.submit();
-
+        JavascriptExecutor jse = (JavascriptExecutor)driver;
+        jse.executeScript("arguments[0].click();", submitButton);
     }
 
     public String getFirstNameError() {
@@ -221,9 +217,7 @@ public class RegistrationPage extends BasePage {
 
 
     public void termsCheckbox() {
-//        WebElement terms = SeleniumUtils.waitForGenericElement(driver, By.id(termsCheckboxSelector), 10);
         WebElement terms = driver.findElement(By.id(termsCheckboxSelector));
-//        terms.click();
         JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeScript("arguments[0].click();", terms);
         Assert.assertTrue(terms.isSelected());
@@ -247,20 +241,23 @@ public class RegistrationPage extends BasePage {
         Assert.assertFalse(radio3.isSelected());
 
         //test radio1 select, radio2, 3 remains unselected
-        radio1.click();
+        JavascriptExecutor jse1 = (JavascriptExecutor)driver;
+        jse1.executeScript("arguments[0].click();", radio1);
         Assert.assertTrue(radio1.isSelected());
         Assert.assertFalse(radio2.isSelected());
         Assert.assertFalse(radio3.isSelected());
 
 
         //test radio2 select, radio1,3 becomes unselected
-        radio2.click();
+        JavascriptExecutor jse2 = (JavascriptExecutor)driver;
+        jse2.executeScript("arguments[0].click();", radio2);
         Assert.assertFalse(radio1.isSelected());
         Assert.assertTrue(radio2.isSelected());
         Assert.assertFalse(radio3.isSelected());
 
         //test radio3 select, radio2,3 becomes unselected
-        radio2.click();
+        JavascriptExecutor jse3 = (JavascriptExecutor)driver;
+        jse3.executeScript("arguments[0].click();", radio3);
         Assert.assertFalse(radio1.isSelected());
         Assert.assertFalse(radio2.isSelected());
         Assert.assertTrue(radio3.isSelected());

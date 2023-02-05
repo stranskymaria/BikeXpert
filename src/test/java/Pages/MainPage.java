@@ -1,23 +1,13 @@
 package Pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class MainPage extends BasePage{
-
-    private String alertUrlSelector = "#svelte > div.container-fluid > div.main.row > div.sidebar > a:nth-child(1)"; //CSS
-    private String hoverUrlSelector = "#svelte > div.container-fluid > div.main.row > div.sidebar > a:nth-child(3)"; // CSS
-    private String interceptorUrlSelector = "#svelte > div.container-fluid > div.main.row > div.sidebar > a:nth-child(4)"; //CSS
-    private String modalUrlSelector = "#svelte > div.container-fluid > div.main.row > div.sidebar > a:nth-child(5)";// CSS
-    private String welcomeTextSelector = "#svelte > div.container-fluid > div.main.row > div.content > h1"; //CSS
-
-    private String cookieUrlSelector = "#svelte > div.container-fluid > div.main.row > div.sidebar > a:nth-child(2)";
-
     private String agreeCookiesSelector = "body > section > div.container > header > div.smaller_right > input"; //CSS
 
-    private String accountButtonSelector = "#login-link > i.t-config-usericon-color.fa-user.fa"; //CSS
+    private String accountButtonSelector = "login-link"; //CSS
 
     private String loginButtonSelector = "#header > div.top-header-section.t-top-header-background > div > div.right-section.users-box-section.cf > div.box-user.left > div > div > div > div.buttons-login > a"; //CSS
 
@@ -33,18 +23,17 @@ public class MainPage extends BasePage{
         }
     }
 
-    public void loginPage() {
-        WebElement accountButton = driver.findElement(By.cssSelector(accountButtonSelector));
+    public void accountButton() {
+        WebElement accountButton = driver.findElement(By.id(accountButtonSelector));
         accountButton.click();
+    }
+
+    public void loginPageLink() {
         WebElement loginButton = driver.findElement(By.cssSelector(loginButtonSelector));
         loginButton.click();
     }
 
-    public void registrationPage() {
-        WebElement accountButton = driver.findElement(By.cssSelector(accountButtonSelector));
-//        JavascriptExecutor jse = (JavascriptExecutor)driver;
-//        jse.executeScript("arguments[0].click();", accountButton);
-        accountButton.click();
+    public void registrationPageLink() {
         WebElement registrationButton = driver.findElement(By.cssSelector(registerButtonSelector));
         registrationButton.click();
     }

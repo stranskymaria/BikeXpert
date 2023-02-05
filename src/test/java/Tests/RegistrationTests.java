@@ -5,11 +5,7 @@ import Pages.RegistrationConfirmationPage;
 import Pages.RegistrationPage;
 import Tests.ObjectModels.RegistrationModel;
 import Utils.ExtentTestManager;
-import Utils.GenericUtils;
-import Utils.SeleniumUtils;
 import Utils.Tools;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -26,39 +22,7 @@ public class RegistrationTests extends BaseTest{
 //        RegistrationPOMPage rp = new RegistrationPOMPage(driver);
 //        rp.verifyTextsOnPage();
 //    }
-//
-//    @Test
-//    public void checkLabels() {
-//        driver.get(baseUrl + "/signup/");
-//        RegistrationPOMPage rp = new RegistrationPOMPage(driver);
-//        rp.verifyLabels();
-//    }
-//
-//    @Test
-//    public void checkFieldsConditionsAndIcons() {
-//        driver.get(baseUrl + "/signup/");
-//        RegistrationPOMPage rp = new RegistrationPOMPage(driver);
-//        rp.verifyFieldsConditions();
-//        rp.verifyFieldsIcons();
-//    }
-//
 
-//
-//    @Test
-//    public void titleRadioButtonsTest() {
-//        driver.get(baseUrl + "/signup/");
-//        RegistrationPOMPage rp = new RegistrationPOMPage(driver);
-//        rp.titleRadioButtons();
-//    }
-    @Test
-    public void termsCheckboxTest(Method method) {
-        test = ExtentTestManager.startTest(method.getName(), "");
-        MainPage mp = new MainPage(driver);
-        mp.agreeCookies();
-        mp.registrationPage();
-        RegistrationPage rp = new RegistrationPage(driver);
-        rp.termsCheckbox();
-    }
 
     @DataProvider(name = "RegistrationSQLdp")
     public Iterator<Object[]> SQLDpCollection(Method method) {
@@ -111,12 +75,13 @@ public class RegistrationTests extends BaseTest{
 
     @Test(dataProvider = "RegistrationSQLdp")
     public void negativeRegistrationWithDBTest(RegistrationModel rm, Method method) {
-        test = ExtentTestManager.startTest(method.getName(), "");
+        test = ExtentTestManager.startTest(method.getName(), "Negative registration tests with SQL");
+        driver.get(baseUrl);
 //       open registration page
-        System.out.println("Open Login page");
         MainPage mp = new MainPage(driver);
         mp.agreeCookies();
-        mp.registrationPage();
+        mp.accountButton();
+        mp.registrationPageLink();
 
 //        print data set
         System.out.println(rm);
@@ -131,7 +96,6 @@ public class RegistrationTests extends BaseTest{
                 rm.getAccount().getPassword(),
                 rm.getAccount().getConfirmPassword());
         rp.submitRegistration();
-        System.out.println("Register button was pressed");
 
         Assert.assertTrue(rp.checkRegErr(rm.getFirstNameError(), "firstNameErr"));
         System.out.println("Expected first name error: " + rm.getFirstNameError() + " \n");
@@ -158,13 +122,14 @@ public class RegistrationTests extends BaseTest{
 
 
     @Test(dataProvider = "RegistrationSQLdp")
-    public void positiveRegistrationWithDBTest(RegistrationModel rm, Method method) {
-        test = ExtentTestManager.startTest(method.getName(), "");
+    public void positiveRegistrationWithDBTest(RegistrationModel rm, Method method) throws InterruptedException {
+        test = ExtentTestManager.startTest(method.getName(), "positive registration test with SQL");
+        driver.get(baseUrl);
 //       open registration page
-        System.out.println("Open Registration page");
         MainPage mp = new MainPage(driver);
         mp.agreeCookies();
-        mp.registrationPage();
+        mp.accountButton();
+        mp.registrationPageLink();
 
 //        print data set
         System.out.println(rm);
@@ -172,18 +137,17 @@ public class RegistrationTests extends BaseTest{
         RegistrationPage rp = new RegistrationPage(driver);
 
 //        registration with random phone number and email with timestamp
-        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-        String timestampEmail = timestamp.getTime() + "@gmail.com";
-        String randomNumber = GenericUtils.createRandomNumber(6);
         rp.registration(rm.getAccount().getFirstName(),
                 rm.getAccount().getLastName(),
                 rm.getAccount().getPhone() + randomNumber,
                 rm.getAccount().getEmail() + timestampEmail,
                 rm.getAccount().getPassword(),
                 rm.getAccount().getConfirmPassword());
+        System.out.println(timestampEmail);
         rp.termsCheckbox();
+        Thread.sleep(5000);
         rp.submitRegistration();
-        System.out.println("Register button was pressed");
+        System.out.println("submit pressed");
         RegistrationConfirmationPage rcp = new RegistrationConfirmationPage(driver);
         rcp.registrationConfirmation();
         Assert.assertEquals(rcp.getNameValue(), rm.getAccount().getLastName() + " " + rm.getAccount().getFirstName());
@@ -193,11 +157,25 @@ public class RegistrationTests extends BaseTest{
     }
 
     @Test
-    public void appellationRadioButtonsTest(Method method) {
-        test = ExtentTestManager.startTest(method.getName(), "");
+    public void termsCheckboxTest(Method method) {
+        test = ExtentTestManager.startTest(method.getName(), "Testing terms checkbox from registration page");
+        driver.get(baseUrl);
         MainPage mp = new MainPage(driver);
         mp.agreeCookies();
-        mp.registrationPage();
+        mp.accountButton();
+        mp.registrationPageLink();
+        RegistrationPage rp = new RegistrationPage(driver);
+        rp.termsCheckbox();
+    }
+
+    @Test
+    public void appellationRadioButtonsTest(Method method) {
+        test = ExtentTestManager.startTest(method.getName(), "Testing appellation radio buttons from registration page");
+        driver.get(baseUrl);
+        MainPage mp = new MainPage(driver);
+        mp.agreeCookies();
+        mp.accountButton();
+        mp.registrationPageLink();
         RegistrationPage rp = new RegistrationPage(driver);
         rp.appellationRadioButtons();
     }

@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a23810a2-577d-40ea-b470-7099d3183ff2" name="Changes" comment="Changes to use the same SQL data provider with different data sets from DB for different tests&#10;Assert added for positive login and registration">
+    <list default="true" id="a23810a2-577d-40ea-b470-7099d3183ff2" name="Changes" comment="Registration radio buttons">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/BasePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Pages/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/MainPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Pages/RegistrationConfirmationPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/RegistrationConfirmationPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Pages/RegistrationPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/RegistrationPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Tests/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/BaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Tests/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/LoginTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Tests/RegistrationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/RegistrationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/config.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,14 +45,20 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/smadd/IdeaProjects/BikeXCS&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;
   }
 }</component>
-  <component name="RunManager" selected="TestNG.RegistrationTests.termsCheckboxTest">
-    <configuration name="LoginTests.positiveLoginWithJsonTest" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\smadd\IdeaProjects" />
+    </key>
+  </component>
+  <component name="RunManager" selected="TestNG.RegistrationTests.negativeRegistrationWithDBTest">
+    <configuration name="LoginTests.negativeLoginWithJsonTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="MyProject" />
       <extension name="coverage">
         <pattern>
@@ -58,7 +68,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
       <option name="MAIN_CLASS_NAME" value="Tests.LoginTests" />
-      <option name="METHOD_NAME" value="positiveLoginWithJsonTest" />
+      <option name="METHOD_NAME" value="negativeLoginWithJsonTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -140,11 +150,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.RegistrationTests.termsCheckboxTest" />
-        <item itemvalue="TestNG.RegistrationTests.appellationRadioButtonsTest" />
         <item itemvalue="TestNG.RegistrationTests.negativeRegistrationWithDBTest" />
         <item itemvalue="TestNG.RegistrationTests.positiveRegistrationWithDBTest" />
-        <item itemvalue="TestNG.LoginTests.positiveLoginWithJsonTest" />
+        <item itemvalue="TestNG.RegistrationTests.appellationRadioButtonsTest" />
+        <item itemvalue="TestNG.RegistrationTests.termsCheckboxTest" />
+        <item itemvalue="TestNG.LoginTests.negativeLoginWithJsonTest" />
       </list>
     </recent_temporary>
   </component>
@@ -206,7 +216,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675559678884</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Registration radio buttons">
+      <created>1675599874978</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1675599874978</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -227,24 +244,15 @@
     <MESSAGE value="Added GenericUtils methods for random number, email with timestamp, added random phone number, email with timestamp fot positive registration tests" />
     <MESSAGE value="Changes to use the same JSON data provider with different files for different tests" />
     <MESSAGE value="Changes to use the same SQL data provider with different data sets from DB for different tests&#10;Assert added for positive login and registration" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes to use the same SQL data provider with different data sets from DB for different tests&#10;Assert added for positive login and registration" />
+    <MESSAGE value="Registration radio buttons" />
+    <option name="LAST_COMMIT_MESSAGE" value="Registration radio buttons" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/Tests/RegistrationTests.java</url>
-          <line>198</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/Tests/RegistrationTests.java</url>
-          <line>199</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/Tests/RegistrationTests.java</url>
-          <line>201</line>
+          <line>83</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>

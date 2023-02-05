@@ -46,21 +46,18 @@ public class LoginTests extends BaseTest{
 
     @Test(dataProvider = "loginJsonDp")
     public void negativeLoginWithJsonTest(LoginModel lm, Method method) {
-        test = ExtentTestManager.startTest(method.getName(), "");
+        test = ExtentTestManager.startTest(method.getName(), "Negative login tests with JSON");
+        driver.get(baseUrl);
 //       open login page
-        System.out.println("Open Login page");
         MainPage mp = new MainPage(driver);
         mp.agreeCookies();
-        mp.loginPage();
-
+        mp.accountButton();
+        mp.loginPageLink();
 //        print data set
         System.out.println(lm);
-
         LoginPage lp = new LoginPage(driver);
-
 //      login
         lp.login(lm.getAccount().getEmail(), lm.getAccount().getPassword());
-        System.out.println("Login button was pressed");
         System.out.println("Expected user error: " + lm.getEmailError() + " \n");
         Assert.assertTrue(lp.checkErr(lm.getEmailError(), "emailErr"));
         System.out.println("Expected user error: " + lm.getEmailError() + " \n");
@@ -71,12 +68,14 @@ public class LoginTests extends BaseTest{
 
     @Test(dataProvider = "loginJsonDp")
     public void positiveLoginWithJsonTest(LoginModel lm, Method method) {
-        test = ExtentTestManager.startTest(method.getName(), "");
+        test = ExtentTestManager.startTest(method.getName(), "Positive login test with JSON");
+        driver.get(baseUrl);
 //       open login page
         System.out.println("Open Login page");
         MainPage mp = new MainPage(driver);
         mp.agreeCookies();
-        mp.loginPage();
+        mp.accountButton();
+        mp.loginPageLink();
 
 //        print data set
         System.out.println(lm);
@@ -85,7 +84,6 @@ public class LoginTests extends BaseTest{
 
 //      login
         lp.login(lm.getAccount().getEmail(), lm.getAccount().getPassword());
-        System.out.println("Login button was pressed");
         MyAccountPage map = new MyAccountPage(driver);
         map.myAccount();
         Assert.assertEquals(map.getNameValue(), "Popa Maria");
