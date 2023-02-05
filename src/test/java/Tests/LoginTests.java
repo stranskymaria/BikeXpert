@@ -2,6 +2,7 @@ package Tests;
 
 import Pages.LoginPage;
 import Pages.MainPage;
+import Pages.MyAccountPage;
 import Utils.ExtentTestManager;
 import Tests.ObjectModels.LoginModel;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -85,6 +86,11 @@ public class LoginTests extends BaseTest{
 //      login
         lp.login(lm.getAccount().getEmail(), lm.getAccount().getPassword());
         System.out.println("Login button was pressed");
+        MyAccountPage map = new MyAccountPage(driver);
+        map.myAccount();
+        Assert.assertEquals(map.getNameValue(), "Popa Maria");
+        Assert.assertEquals(map.getEmailValue(), lm.getAccount().getEmail());
+        Assert.assertEquals(map.getPhoneValue(), "0722000000");
     }
 
 

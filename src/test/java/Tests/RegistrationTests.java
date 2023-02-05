@@ -1,6 +1,7 @@
 package Tests;
 
 import Pages.MainPage;
+import Pages.RegistrationConfirmationPage;
 import Pages.RegistrationPage;
 import Tests.ObjectModels.RegistrationModel;
 import Utils.ExtentTestManager;
@@ -56,8 +57,8 @@ public class RegistrationTests extends BaseTest{
         rp.termsCheckbox();
     }
 
-    @DataProvider(name = "negativeRegistrationSQLdp")
-    public Iterator<Object[]> NegativeSQLDpCollection() {
+    @DataProvider(name = "RegistrationSQLdp")
+    public Iterator<Object[]> SQLDpCollection(Method method) {
         //        get DB connection settings
         System.out.println("Use dbHostname:" + dbHostname);
         System.out.println("Use dbUser:" + dbUser);
@@ -70,7 +71,15 @@ public class RegistrationTests extends BaseTest{
             Connection connection = DriverManager.getConnection("jdbc:mysql://" + dbHostname + ":" + dbPort
                     + "/" + dbSchema, dbUser, new String(base64.decode(dbPassword.getBytes())));
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM registration WHERE id = 1 OR id = 2 OR id = 3 OR id = 4");
+            String query;
+            if (method.getName().equals("negativeRegistrationWithDBTest")) {
+                query = "SELECT * FROM registration WHERE id = 1 OR id = 2 OR id = 3 OR id = 4";
+            } else if (method.getName().equals("positiveRegistrationWithDBTest")) {
+                query = "SELECT * FROM registration WHERE id = 5";
+            }else {
+                throw new IllegalArgumentException("Incorrect query");
+            }
+            ResultSet resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
                 RegistrationModel rm = new RegistrationModel(getEscapedElement(resultSet, "firstName"),
                         getEscapedElement(resultSet, "lastName"),
@@ -97,7 +106,7 @@ public class RegistrationTests extends BaseTest{
         return Tools.replaceElements(resultSet.getString(element), "''", "");
     }
 
-    @Test(dataProvider = "negativeRegistrationSQLdp")
+    @Test(dataProvider = "RegistrationSQLdp")
     public void negativeRegistrationWithDBTest(RegistrationModel rm, Method method) {
         test = ExtentTestManager.startTest(method.getName(), "");
 //       open registration page
@@ -144,43 +153,8 @@ public class RegistrationTests extends BaseTest{
 
     }
 
-    @DataProvider(name = "positiveRegistrationSQLdp")
-    public Iterator<Object[]> SQLDpCollection() {
-        //        get DB connection settings
-        System.out.println("Use dbHostname:" + dbHostname);
-        System.out.println("Use dbUser:" + dbUser);
-        System.out.println("Use dbPort:" + dbPort);
-        System.out.println("Use dbPassword:" + dbPassword);
-        System.out.println("Use dbSchema:" + dbSchema);
 
-        Collection<Object[]> dp = new ArrayList<>();
-        try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://" + dbHostname + ":" + dbPort
-                    + "/" + dbSchema, dbUser, new String(base64.decode(dbPassword.getBytes())));
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM registration WHERE id = 5");
-            while (resultSet.next()) {
-                RegistrationModel rm = new RegistrationModel(getEscapedElement(resultSet, "firstName"),
-                        getEscapedElement(resultSet, "lastName"),
-                        getEscapedElement(resultSet, "phone"),
-                        getEscapedElement(resultSet, "email"),
-                        getEscapedElement(resultSet, "password"),
-                        getEscapedElement(resultSet, "confirmPassword"),
-                        getEscapedElement(resultSet, "firstNameErr"),
-                        getEscapedElement(resultSet, "lastNameErr"),
-                        getEscapedElement(resultSet, "phoneErr"),
-                        getEscapedElement(resultSet, "emailErr"),
-                        getEscapedElement(resultSet, "passwordErr"),
-                        getEscapedElement(resultSet, "confirmPasswordErr"),
-                        getEscapedElement(resultSet, "termsErr"));
-                dp.add(new Object[]{rm});
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        return dp.iterator();
-    }
-    @Test(dataProvider = "positiveRegistrationSQLdp")
+    @Test(dataProvider = "RegistrationSQLdp")
     public void positiveRegistrationWithDBTest(RegistrationModel rm, Method method) {
         test = ExtentTestManager.startTest(method.getName(), "");
 //       open registration page
@@ -204,6 +178,11 @@ public class RegistrationTests extends BaseTest{
         rp.termsCheckbox();
         rp.submitRegistration();
         System.out.println("Register button was pressed");
+        RegistrationConfirmationPage rcp = new RegistrationConfirmationPage(driver);
+        rcp.registrationConfirmation();
+        Assert.assertEquals(rcp.getNameValue(), rm.getAccount().getLastName() + " " + rm.getAccount().getFirstName());
+//        Assert.assertEquals(rcp.getEmailValue(), GenericUtils.createEmailTimestamp(rm.getAccount().getEmail()));
+//        Assert.assertEquals(rcp.getPhoneValue(), rm.getAccount().getPhone() + GenericUtils.createRandomNumber(6));
 
     }
 
