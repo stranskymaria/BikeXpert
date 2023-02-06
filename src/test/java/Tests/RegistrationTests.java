@@ -1,5 +1,6 @@
 package Tests;
 
+import Pages.LoginPage;
 import Pages.MainPage;
 import Pages.RegistrationConfirmationPage;
 import Pages.RegistrationPage;
@@ -16,13 +17,18 @@ import java.util.Collection;
 import java.util.Iterator;
 
 public class RegistrationTests extends BaseTest{
-//    @Test
-//    public void checkTextsOnPage() {
-//        driver.get(baseUrl + "/signup/");
-//        RegistrationPOMPage rp = new RegistrationPOMPage(driver);
-//        rp.verifyTextsOnPage();
-//    }
 
+    @Test
+    public void verifyRegistrationPage(Method method){
+        test = ExtentTestManager.startTest(method.getName(), "Negative login tests with JSON");
+        driver.get(baseUrl);
+        MainPage mp = new MainPage(driver);
+        mp.agreeCookies();
+        mp.accountButton();
+        mp.registrationPageLink();
+        RegistrationPage rp = new RegistrationPage(driver);
+        rp.verifyRegistrationPage();
+    }
 
     @DataProvider(name = "RegistrationSQLdp")
     public Iterator<Object[]> SQLDpCollection(Method method) {
@@ -180,5 +186,15 @@ public class RegistrationTests extends BaseTest{
         rp.appellationRadioButtons();
     }
 
-
+    @Test
+    public void newsletterCheckboxTest(Method method) {
+        test = ExtentTestManager.startTest(method.getName(), "Testing terms checkbox from registration page");
+        driver.get(baseUrl);
+        MainPage mp = new MainPage(driver);
+        mp.agreeCookies();
+        mp.accountButton();
+        mp.registrationPageLink();
+        RegistrationPage rp = new RegistrationPage(driver);
+        rp.newsletterCheckbox();
+    }
 }

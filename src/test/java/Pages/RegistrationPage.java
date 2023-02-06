@@ -5,29 +5,21 @@ import org.testng.Assert;
 
 public class RegistrationPage extends BasePage {
 
-    //Fields labels and fields conditions labels selectors
-    private String titleTextSelector = "#svelte > div.container-fluid > div.main.row > div.content > h1";
-    private String pageDescriptionSelector = "#svelte > div.container-fluid > div.main.row > div.content > p";
-    private String formTitleSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > p";
-    private String detailsTextSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(5) > p";
-    private String usernameLabelSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(2) > label";
-    private String usernameConditionSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(2) > small";
-    private String passwordLabelSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(3) > label";
-    private String passwordConditionSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(3) > small";
-    private String confirmPasswordLabelSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(4) > label";
-    private String confirmPasswordConditionSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(4) > small";
-    private String appellationLabelSelector = "#register > form > div:nth-child(4) > label"; //CSS
-    private String mrLabelSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(6) > div:nth-child(2) > label";
-    private String msLabelSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(6) > div:nth-child(3) > label";
-    private String firstNameLabelSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(7) > label";
-    private String firstNameConditionSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(7) > small";
-    private String lastNameLabelSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(8) > label";
-    private String lastNameConditionSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(8) > small";
-    private String emailLabelSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(9) > label";
-    private String emailSpamSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(9) > small";
-    private String birthdayLabelSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(10) > label";
-    private String nationalityLabelSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(11) > label";
-    private String termsLabelSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(12) > div > label";
+    //Fields labels
+    private String registrationFormTitleSelector = "#register > form > h2"; //CSS
+    private String appellationDnaLabelSelector = "#register > form > div:nth-child(4) > div > label:nth-child(2)";//CSS
+    private String appellationDraLabelSelector = "#register > form > div:nth-child(4) > div > label:nth-child(4)";//CSS
+    private String appellationDlLabelSelector = "#register > form > div:nth-child(4) > div > label:nth-child(6)";//CSS
+    private String firstNameLabelSelector = "#register > form > div:nth-child(5) > label";//CSS
+    private String lastNameLabelSelector = "#register > form > div:nth-child(6) > label";//CSS
+    private String phoneLabelSelector = "#register > form > div:nth-child(7) > label";//CSS
+    private String emailLabelSelector = "#register > form > div:nth-child(8) > label";//CSS
+    private String passwordLabelSelector = "#register > form > div:nth-child(9) > label";//CSS
+    private String confirmPasswordLabelSelector = "#register > form > div:nth-child(10) > label";//CSS
+    private String newsletterTextLabelSelector = "#register > form > div.form-group.margin-top-10.margin-bottom-10 > div > label";//CSS
+    private String policyTextLabelSelector = "#register > form > div.form-group.margin-top-10.margin-bottom-10 > label";//CSS
+
+
 
     //input selectors
     private String firstNameInputSelector = "#register > form > div:nth-child(5) > div > input"; //CSS
@@ -40,8 +32,8 @@ public class RegistrationPage extends BasePage {
 
     private String confirmPasswordInputSelector = "#register > form > div:nth-child(10) > div > input"; //CSS
     private String submitButtonSelector = "#register > form > div.form-actions.col-8 > button"; //CSS
-
-    private String termsCheckboxSelector = "terms"; //CSS
+    
+    private String termsCheckboxSelector = "terms"; //ID
 
     private String dnaRadioButtonSelector = "salutation_1"; //ID
 
@@ -65,52 +57,21 @@ public class RegistrationPage extends BasePage {
         super(driver);
     }
 
-//    public void verifyPage() {
-//        Assert.assertEquals(driver.findElement(By.cssSelector(titleTextSelector)).getText(), "Sign up");
-//    }
-//
-//    public void verifyTextsOnPage() {
-//        Assert.assertEquals(driver.findElement(By.cssSelector(pageDescriptionSelector)).getText(), "Create a new temporary account. A default session will be created with the successfully created account. The new account will not be saved, so when the session expires (in 2 minutes), the account will no longer exist.");
-//        Assert.assertEquals(driver.findElement(By.cssSelector(formTitleSelector)).getText(), "Your login information");
-//        Assert.assertEquals(driver.findElement(By.cssSelector(detailsTextSelector)).getText(), "Some details to get to know you better");
-//    }
-//
-//    public void verifyLabels() {
-//        Assert.assertEquals(driver.findElement(By.cssSelector(usernameLabelSelector)).getText(), "Username*");
-//        Assert.assertEquals(driver.findElement(By.cssSelector(passwordLabelSelector)).getText(), "Password*");
-//        Assert.assertEquals(driver.findElement(By.cssSelector(confirmPasswordLabelSelector)).getText(), "Confirm password*");
-//        Assert.assertEquals(driver.findElement(By.cssSelector(titleLabelSelector)).getText(), "Title");
-//        Assert.assertEquals(driver.findElement(By.cssSelector(mrLabelSelector)).getText(), "Mr");
-//        Assert.assertEquals(driver.findElement(By.cssSelector(msLabelSelector)).getText(), "Ms");
-//        Assert.assertEquals(driver.findElement(By.cssSelector(firstNameLabelSelector)).getText(), "First name");
-//        Assert.assertEquals(driver.findElement(By.cssSelector(lastNameLabelSelector)).getText(), "Last name");
-//        Assert.assertEquals(driver.findElement(By.cssSelector(emailLabelSelector)).getText(), "Email");
-//        Assert.assertEquals(driver.findElement(By.cssSelector(birthdayLabelSelector)).getText(), "Date of birth");
-//        Assert.assertEquals(driver.findElement(By.cssSelector(nationalityLabelSelector)).getText(), "Nationality");
-//        Assert.assertEquals(driver.findElement(By.cssSelector(termsLabelSelector)).getText(), "I accept the terms and conditions*");
-//    }
-//
-//    public void verifyFieldsConditions() {
-//        Assert.assertEquals(driver.findElement(By.cssSelector(usernameConditionSelector)).getText(), "4 to 35 letters, numbers or underscore.");
-//        Assert.assertEquals(driver.findElement(By.cssSelector(passwordConditionSelector)).getText(), "Minimum of 8 characters.");
-//        Assert.assertEquals(driver.findElement(By.cssSelector(confirmPasswordConditionSelector)).getText(), "Must match the password.");
-//        Assert.assertEquals(driver.findElement(By.cssSelector(firstNameConditionSelector)).getText(), "2 to 35 letters and '-' only.");
-//        Assert.assertEquals(driver.findElement(By.cssSelector(lastNameConditionSelector)).getText(), "2 to 35 letters and '-' only.");
-//        Assert.assertEquals(driver.findElement(By.cssSelector(emailSpamSelector)).getText(), "We promise we won't spam you.");
-//
-//    }
-//
-//    public void verifyFieldsIcons() {
-//        Assert.assertTrue(driver.findElement(By.cssSelector(usernameIconSelector)).isDisplayed());
-//        Assert.assertTrue(driver.findElement(By.cssSelector(passwordIconSelector)).isDisplayed());
-//        Assert.assertTrue(driver.findElement(By.cssSelector(confirmPasswordIconSelector)).isDisplayed());
-//        Assert.assertTrue(driver.findElement(By.cssSelector(firstNameIconSelector)).isDisplayed());
-//        Assert.assertTrue(driver.findElement(By.cssSelector(lastNameIconSelector)).isDisplayed());
-//        Assert.assertTrue(driver.findElement(By.cssSelector(emailIconSelector)).isDisplayed());
-//        Assert.assertTrue(driver.findElement(By.cssSelector(birthdayIconSelector)).isDisplayed());
-//        Assert.assertTrue(driver.findElement(By.cssSelector(nationalityIconSelector)).isDisplayed());
-//    }
-
+    public void verifyRegistrationPage() {
+        Assert.assertEquals(driver.findElement(By.cssSelector(registrationFormTitleSelector)).getText(), "Inregistrare");
+        Assert.assertEquals(driver.findElement(By.cssSelector(appellationDnaLabelSelector)).getText(), "Dna.");
+        Assert.assertEquals(driver.findElement(By.cssSelector(appellationDraLabelSelector)).getText(), "Dra.");
+        Assert.assertEquals(driver.findElement(By.cssSelector(appellationDlLabelSelector)).getText(), "Dl.");
+        Assert.assertEquals(driver.findElement(By.cssSelector(firstNameLabelSelector)).getText(), "Prenume");
+        Assert.assertEquals(driver.findElement(By.cssSelector(lastNameLabelSelector)).getText(), "Nume");
+        Assert.assertEquals(driver.findElement(By.cssSelector(phoneLabelSelector)).getText(), "Telefon");
+        Assert.assertEquals(driver.findElement(By.cssSelector(emailLabelSelector)).getText(), "Adresa e-mail");
+        Assert.assertEquals(driver.findElement(By.cssSelector(passwordLabelSelector)).getText(), "Parola");
+        Assert.assertEquals(driver.findElement(By.cssSelector(confirmPasswordLabelSelector)).getText(), "Confirmare parola");
+        Assert.assertEquals(driver.findElement(By.cssSelector(newsletterTextLabelSelector)).getText(), "Doresc sa ma abonez la newsletter.");
+        Assert.assertEquals(driver.findElement(By.cssSelector(policyTextLabelSelector)).getText(), "Am citit si sunt de acord cu termenii si conditiile si cu politica de confidentialitate");
+        Assert.assertEquals(driver.findElement(By.cssSelector(submitButtonSelector)).getText(), "Inregistrare");
+    }
     public void registration(String firstName,
                              String lastName,
                              String phone,
@@ -263,9 +224,12 @@ public class RegistrationPage extends BasePage {
         Assert.assertTrue(radio3.isSelected());
     }
 
-//    public String getCurrentUrl() {
-//        String URL = driver.getCurrentUrl();
-//        return URL;
-//            }
+    public void newsletterCheckbox() {
+        WebElement newsletterCheckbox = driver.findElement(By.cssSelector("[id^='newsletter_accept']"));
+        Assert.assertFalse(newsletterCheckbox.isSelected());
+        JavascriptExecutor jse = (JavascriptExecutor)driver;
+        jse.executeScript("arguments[0].click();", newsletterCheckbox);
+        Assert.assertTrue(newsletterCheckbox.isSelected());
+    }
 
 }
