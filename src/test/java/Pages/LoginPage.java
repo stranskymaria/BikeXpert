@@ -1,19 +1,27 @@
 package Pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 public class LoginPage extends BasePage {
 
-//    private String pageTextSelector = "//*[@id=\"svelte\"]/div[1]/div[2]/div[2]/h1";
-//    private String pageTextCSSSelector = "#svelte > div.container-fluid > div.main.row > div.content > h1";
-//    private String pageTextClassSelector = "content";
-//    private String elementsSelector = "content";
-//    private String elementsTagSelector = "small";
-//    private String usernameLabelSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(1) > label";
-//    private String passwordLabelSelector = "#svelte > div.container-fluid > div.main.row > div.content > div > div > div > form > div:nth-child(2) > label";
+    private String loginFormTitleSelector = "#login > form > h2"; //CSS
+    private String loginFormSubtitleSelector = "#login > form > p";//CSS
+    private String emailLabelSelector = "#login > form > div:nth-child(5) > label";//CSS
+    private String passwordLabelSelector = "#login > form > div:nth-child(6) > label";//CSS
+    private String policyTextSelector = "#login > form > div:nth-child(7) > div > p";//CSS
+    private String forgotPasswordSelector = "#login > form > div.form-actions > div > a";//CSS
 
+    private String emailResetPasswordTextSelector = "#forgotpassword > form > p";
+
+    private String emailResetPasswordInputSelector = "#forgotpassword > form > div:nth-child(4) > input[type=email]";
+
+    private String submitSendPasswordButtonSelector = "#forgotpassword > form > div:nth-child(5) > button";
+
+    private String emailSentMessageSelector = "#forgotpassword > div";
     private String emailInputSelector = "#login > form > div:nth-child(5) > div > input"; //CSS
     private String passwordInputSelector = "#login > form > div:nth-child(6) > div > input"; //CSS
     private String submitButtonSelector = "#login > form > div.form-actions > div > button"; //CSS
@@ -24,15 +32,36 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
-//    public void verifyPage() {
-//        Assert.assertEquals(driver.findElement(By.xpath(pageTextSelector)).getText(), "Sign in");
-//    }
+    public void verifyLoginPage() {
+        Assert.assertEquals(driver.findElement(By.cssSelector(loginFormTitleSelector)).getText(), "Autentificare");
+        Assert.assertEquals(driver.findElement(By.cssSelector(loginFormSubtitleSelector)).getText(), "Pentru a accesa contul dumneavoastra, va rugam introduceti adresa de e-mail si parola.");
+        Assert.assertEquals(driver.findElement(By.cssSelector(emailLabelSelector)).getText(), "Adresa e-mail");
+        Assert.assertEquals(driver.findElement(By.cssSelector(passwordLabelSelector)).getText(), "Parola");
+        Assert.assertEquals(driver.findElement(By.cssSelector(policyTextSelector)).getText(), "Inainte de a trimite solicitarea dumneavoastra, va rugam sa consultati Politica de confidentialitate  privind prelucrarea datelor personale.");
+        Assert.assertEquals(driver.findElement(By.cssSelector(forgotPasswordSelector)).getText(), "Ai uitat parola?");
+        Assert.assertEquals(driver.findElement(By.cssSelector(submitButtonSelector)).getText(), "Autentificare");
+    }
 
-//    public void login(String email, String password, String emailError, String passError) {
-//        login(email, password);
-//        Assert.assertEquals(getEmailError(), emailError);
-//        Assert.assertEquals(getPasswordError(), passError);
-//    }
+    public void forgotPasswordClick() {
+        WebElement forgotPasswordButton = driver.findElement(By.cssSelector(forgotPasswordSelector));
+        JavascriptExecutor jse = (JavascriptExecutor)driver;
+        jse.executeScript("arguments[0].click();", forgotPasswordButton);
+    }
+
+    public void emailResetPasswordInput(String email) {
+        WebElement emailResetPasswordText = driver.findElement(By.cssSelector(emailResetPasswordTextSelector));
+        WebElement emailResetPasswordInput = driver.findElement(By.cssSelector(emailResetPasswordInputSelector));
+        WebElement submitSendPasswordButton = driver.findElement(By.cssSelector(submitSendPasswordButtonSelector));
+        Assert.assertEquals(emailResetPasswordText.getText(), "Introdu mai jos adresa de e-mail pentru care doresti sa resetam parola:");
+        Assert.assertEquals(submitSendPasswordButton.getText(), "Trimite parola");
+        emailResetPasswordInput.clear();
+        emailResetPasswordInput.sendKeys(email);
+        submitSendPasswordButton.submit();
+    }
+
+    public String emailSentMessage() {
+        return driver.findElement(By.cssSelector(emailSentMessageSelector)).getText();
+    }
 
     public void login(String email, String password) {
         WebElement emailInput = driver.findElement(By.cssSelector(emailInputSelector));

@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a23810a2-577d-40ea-b470-7099d3183ff2" name="Changes" comment="Registration radio buttons">
+    <list default="true" id="a23810a2-577d-40ea-b470-7099d3183ff2" name="Changes" comment="Fixing flaky tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/BasePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Pages/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/MainPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Pages/RegistrationConfirmationPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/RegistrationConfirmationPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Pages/RegistrationPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/RegistrationPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Tests/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/BaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Pages/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/LoginPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Tests/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/LoginTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Tests/RegistrationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/RegistrationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/config.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,8 +51,8 @@
       <recent name="C:\Users\smadd\IdeaProjects" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.RegistrationTests.negativeRegistrationWithDBTest">
-    <configuration name="LoginTests.negativeLoginWithJsonTest" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="TestNG.LoginTests.forgotPassword">
+    <configuration name="LoginTests.forgotPassword" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="MyProject" />
       <extension name="coverage">
         <pattern>
@@ -68,7 +62,25 @@
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
       <option name="MAIN_CLASS_NAME" value="Tests.LoginTests" />
-      <option name="METHOD_NAME" value="negativeLoginWithJsonTest" />
+      <option name="METHOD_NAME" value="forgotPassword" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginTests.verifyLoginPage" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="MyProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.LoginTests" />
+      <option name="METHOD_NAME" value="verifyLoginPage" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -130,31 +142,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegistrationTests.termsCheckboxTest" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="MyProject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.RegistrationTests" />
-      <option name="METHOD_NAME" value="termsCheckboxTest" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.LoginTests.forgotPassword" />
+        <item itemvalue="TestNG.LoginTests.verifyLoginPage" />
         <item itemvalue="TestNG.RegistrationTests.negativeRegistrationWithDBTest" />
         <item itemvalue="TestNG.RegistrationTests.positiveRegistrationWithDBTest" />
         <item itemvalue="TestNG.RegistrationTests.appellationRadioButtonsTest" />
-        <item itemvalue="TestNG.RegistrationTests.termsCheckboxTest" />
-        <item itemvalue="TestNG.LoginTests.negativeLoginWithJsonTest" />
       </list>
     </recent_temporary>
   </component>
@@ -223,7 +217,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675599874978</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Fixing flaky tests">
+      <created>1675639958866</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1675639958866</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -245,7 +246,8 @@
     <MESSAGE value="Changes to use the same JSON data provider with different files for different tests" />
     <MESSAGE value="Changes to use the same SQL data provider with different data sets from DB for different tests&#10;Assert added for positive login and registration" />
     <MESSAGE value="Registration radio buttons" />
-    <option name="LAST_COMMIT_MESSAGE" value="Registration radio buttons" />
+    <MESSAGE value="Fixing flaky tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing flaky tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

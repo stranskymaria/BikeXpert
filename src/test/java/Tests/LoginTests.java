@@ -19,6 +19,32 @@ import java.util.Iterator;
 
 public class LoginTests extends BaseTest{
 
+    @Test
+    public void verifyLoginPage(Method method){
+        test = ExtentTestManager.startTest(method.getName(), "Negative login tests with JSON");
+        driver.get(baseUrl);
+        MainPage mp = new MainPage(driver);
+        mp.agreeCookies();
+        mp.accountButton();
+        mp.loginPageLink();
+        LoginPage lp = new LoginPage(driver);
+        lp.verifyLoginPage();
+    }
+
+    @Test
+    public void forgotPassword(Method method) {
+        test = ExtentTestManager.startTest(method.getName(), "Negative login tests with JSON");
+        driver.get(baseUrl);
+        MainPage mp = new MainPage(driver);
+        mp.agreeCookies();
+        mp.accountButton();
+        mp.loginPageLink();
+        LoginPage lp = new LoginPage(driver);
+        lp.forgotPasswordClick();
+        lp.emailResetPasswordInput("maditest2@gmail.com");
+        Assert.assertEquals(lp.emailSentMessage(), "BikeXpert.ro v-a trimis acum un email pentru confirmare resetare parola. Va rugam sa asteptati cateva minute pentru a-l primi. Va multumim.");
+    }
+
     @DataProvider(name = "loginJsonDp")
     public Iterator<Object[]> JsonDpCollection(Method method) throws IOException {
         Collection<Object[]> dp = new ArrayList<>();
