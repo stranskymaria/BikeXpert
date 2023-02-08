@@ -1,11 +1,13 @@
 package Pages;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class RegistrationPage extends BasePage {
 
-    //Fields labels
+    //Fields labels, texts
     private String registrationFormTitleSelector = "#register > form > h2"; //CSS
     private String appellationDnaLabelSelector = "#register > form > div:nth-child(4) > div > label:nth-child(2)";//CSS
     private String appellationDraLabelSelector = "#register > form > div:nth-child(4) > div > label:nth-child(4)";//CSS
@@ -102,6 +104,13 @@ public class RegistrationPage extends BasePage {
 
     public void submitRegistration() {
         WebElement submitButton = driver.findElement(By.cssSelector(submitButtonSelector));
+//        JavascriptExecutor js = (JavascriptExecutor) driver;
+//        WebDriverWait wait = new WebDriverWait(driver, 30);
+//
+//        ExpectedCondition<Boolean> jsLoad = driver -> ((JavascriptExecutor) driver)
+//                .executeScript("return document.readyState").toString().equals("complete");
+//
+//        wait.until(jsLoad);
         JavascriptExecutor jse = (JavascriptExecutor)driver;
         jse.executeScript("arguments[0].click();", submitButton);
     }

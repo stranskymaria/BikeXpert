@@ -1,6 +1,5 @@
 package Tests;
 
-import Pages.LoginPage;
 import Pages.MainPage;
 import Pages.RegistrationConfirmationPage;
 import Pages.RegistrationPage;
@@ -23,9 +22,7 @@ public class RegistrationTests extends BaseTest{
         test = ExtentTestManager.startTest(method.getName(), "Negative login tests with JSON");
         driver.get(baseUrl);
         MainPage mp = new MainPage(driver);
-        mp.agreeCookies();
-        mp.accountButton();
-        mp.registrationPageLink();
+        mp.registrationPage();
         RegistrationPage rp = new RegistrationPage(driver);
         rp.verifyRegistrationPage();
     }
@@ -85,9 +82,7 @@ public class RegistrationTests extends BaseTest{
         driver.get(baseUrl);
 //       open registration page
         MainPage mp = new MainPage(driver);
-        mp.agreeCookies();
-        mp.accountButton();
-        mp.registrationPageLink();
+        mp.registrationPage();
 
 //        print data set
         System.out.println(rm);
@@ -133,9 +128,7 @@ public class RegistrationTests extends BaseTest{
         driver.get(baseUrl);
 //       open registration page
         MainPage mp = new MainPage(driver);
-        mp.agreeCookies();
-        mp.accountButton();
-        mp.registrationPageLink();
+        mp.registrationPage();
 
 //        print data set
         System.out.println(rm);
@@ -152,6 +145,7 @@ public class RegistrationTests extends BaseTest{
         System.out.println(timestampEmail);
         rp.termsCheckbox();
         Thread.sleep(5000);
+//        driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
         rp.submitRegistration();
         System.out.println("submit pressed");
         RegistrationConfirmationPage rcp = new RegistrationConfirmationPage(driver);
@@ -167,9 +161,7 @@ public class RegistrationTests extends BaseTest{
         test = ExtentTestManager.startTest(method.getName(), "Testing terms checkbox from registration page");
         driver.get(baseUrl);
         MainPage mp = new MainPage(driver);
-        mp.agreeCookies();
-        mp.accountButton();
-        mp.registrationPageLink();
+        mp.registrationPage();
         RegistrationPage rp = new RegistrationPage(driver);
         rp.termsCheckbox();
     }
@@ -179,9 +171,7 @@ public class RegistrationTests extends BaseTest{
         test = ExtentTestManager.startTest(method.getName(), "Testing appellation radio buttons from registration page");
         driver.get(baseUrl);
         MainPage mp = new MainPage(driver);
-        mp.agreeCookies();
-        mp.accountButton();
-        mp.registrationPageLink();
+        mp.registrationPage();
         RegistrationPage rp = new RegistrationPage(driver);
         rp.appellationRadioButtons();
     }
@@ -191,9 +181,7 @@ public class RegistrationTests extends BaseTest{
         test = ExtentTestManager.startTest(method.getName(), "Testing terms checkbox from registration page");
         driver.get(baseUrl);
         MainPage mp = new MainPage(driver);
-        mp.agreeCookies();
-        mp.accountButton();
-        mp.registrationPageLink();
+        mp.registrationPage();
         RegistrationPage rp = new RegistrationPage(driver);
         rp.newsletterCheckbox();
     }

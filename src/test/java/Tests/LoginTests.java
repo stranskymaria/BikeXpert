@@ -24,9 +24,7 @@ public class LoginTests extends BaseTest{
         test = ExtentTestManager.startTest(method.getName(), "Negative login tests with JSON");
         driver.get(baseUrl);
         MainPage mp = new MainPage(driver);
-        mp.agreeCookies();
-        mp.accountButton();
-        mp.loginPageLink();
+        mp.loginPage();
         LoginPage lp = new LoginPage(driver);
         lp.verifyLoginPage();
     }
@@ -36,9 +34,10 @@ public class LoginTests extends BaseTest{
         test = ExtentTestManager.startTest(method.getName(), "Negative login tests with JSON");
         driver.get(baseUrl);
         MainPage mp = new MainPage(driver);
-        mp.agreeCookies();
-        mp.accountButton();
-        mp.loginPageLink();
+//        mp.agreeCookies();
+//        mp.accountButton();
+//        mp.loginPageLink();
+        mp.loginPage();
         LoginPage lp = new LoginPage(driver);
         lp.forgotPasswordClick();
         lp.emailResetPasswordInput("maditest2@gmail.com");
@@ -76,9 +75,7 @@ public class LoginTests extends BaseTest{
         driver.get(baseUrl);
 //       open login page
         MainPage mp = new MainPage(driver);
-        mp.agreeCookies();
-        mp.accountButton();
-        mp.loginPageLink();
+        mp.loginPage();
 //        print data set
         System.out.println(lm);
         LoginPage lp = new LoginPage(driver);
@@ -92,6 +89,7 @@ public class LoginTests extends BaseTest{
         System.out.println("Expected password error: " + lm.getPasswordError() + " \n");
     }
 
+
     @Test(dataProvider = "loginJsonDp")
     public void positiveLoginWithJsonTest(LoginModel lm, Method method) {
         test = ExtentTestManager.startTest(method.getName(), "Positive login test with JSON");
@@ -99,9 +97,7 @@ public class LoginTests extends BaseTest{
 //       open login page
         System.out.println("Open Login page");
         MainPage mp = new MainPage(driver);
-        mp.agreeCookies();
-        mp.accountButton();
-        mp.loginPageLink();
+        mp.loginPage();
 
 //        print data set
         System.out.println(lm);
@@ -115,7 +111,14 @@ public class LoginTests extends BaseTest{
         Assert.assertEquals(map.getNameValue(), "Popa Maria");
         Assert.assertEquals(map.getEmailValue(), lm.getAccount().getEmail());
         Assert.assertEquals(map.getPhoneValue(), "0722000000");
+        map.leftBoxMenuButtonsText();
     }
 
+    @Test(dependsOnMethods = {"positiveLoginWithJsonTest"} )
+    public void logout(Method method) {
+        test = ExtentTestManager.startTest(method.getName(), "Negative login tests with JSON");
+        MyAccountPage map = new MyAccountPage(driver);
+        map.logout();
+    }
 
 }

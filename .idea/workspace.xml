@@ -4,9 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a23810a2-577d-40ea-b470-7099d3183ff2" name="Changes" comment="Login verify page test, forgot password test">
+    <list default="true" id="a23810a2-577d-40ea-b470-7099d3183ff2" name="Changes" comment="Adding more pages and tests">
+      <change afterPath="$PROJECT_DIR$/src/test/java/Pages/CartPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Pages/FoldableBikesCategoryPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Pages/ProductPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Tests/CartTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Tests/FoldableBikesCategoryTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Tests/MainPageTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Tests/MyAccountTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Pages/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/MainPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Pages/MyAccountPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/MyAccountPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Pages/RegistrationPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/RegistrationPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Tests/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/LoginTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Tests/RegistrationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/RegistrationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,8 +61,8 @@
       <recent name="C:\Users\smadd\IdeaProjects" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.RegistrationTests.newsletterCheckboxTest">
-    <configuration name="LoginTests.forgotPassword" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="TestNG.FoldableBikesCategoryTests.verifyPage">
+    <configuration name="CartTests.emptyCartPage" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="MyProject" />
       <extension name="coverage">
         <pattern>
@@ -61,8 +71,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.LoginTests" />
-      <option name="METHOD_NAME" value="forgotPassword" />
+      <option name="MAIN_CLASS_NAME" value="Tests.CartTests" />
+      <option name="METHOD_NAME" value="emptyCartPage" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -70,7 +80,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTests.verifyLoginPage" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="FoldableBikesCategoryTests.verifyPage" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="MyProject" />
       <extension name="coverage">
         <pattern>
@@ -79,8 +89,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.LoginTests" />
-      <option name="METHOD_NAME" value="verifyLoginPage" />
+      <option name="MAIN_CLASS_NAME" value="Tests.FoldableBikesCategoryTests" />
+      <option name="METHOD_NAME" value="verifyPage" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -88,7 +98,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegistrationTests.negativeRegistrationWithDBTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="MainPageTests.bikesSubmenu" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="MyProject" />
       <extension name="coverage">
         <pattern>
@@ -97,8 +107,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.RegistrationTests" />
-      <option name="METHOD_NAME" value="negativeRegistrationWithDBTest" />
+      <option name="MAIN_CLASS_NAME" value="Tests.MainPageTests" />
+      <option name="METHOD_NAME" value="bikesSubmenu" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -106,7 +116,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegistrationTests.newsletterCheckboxTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="MainPageTests.searchFieldTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="MyProject" />
       <extension name="coverage">
         <pattern>
@@ -115,8 +125,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.RegistrationTests" />
-      <option name="METHOD_NAME" value="newsletterCheckboxTest" />
+      <option name="MAIN_CLASS_NAME" value="Tests.MainPageTests" />
+      <option name="METHOD_NAME" value="searchFieldTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -124,7 +134,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegistrationTests.verifyRegistrationPage" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="MainPageTests.searchTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="MyProject" />
       <extension name="coverage">
         <pattern>
@@ -133,8 +143,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.RegistrationTests" />
-      <option name="METHOD_NAME" value="verifyRegistrationPage" />
+      <option name="MAIN_CLASS_NAME" value="Tests.MainPageTests" />
+      <option name="METHOD_NAME" value="searchTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -144,11 +154,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.RegistrationTests.newsletterCheckboxTest" />
-        <item itemvalue="TestNG.RegistrationTests.verifyRegistrationPage" />
-        <item itemvalue="TestNG.LoginTests.forgotPassword" />
-        <item itemvalue="TestNG.LoginTests.verifyLoginPage" />
-        <item itemvalue="TestNG.RegistrationTests.negativeRegistrationWithDBTest" />
+        <item itemvalue="TestNG.FoldableBikesCategoryTests.verifyPage" />
+        <item itemvalue="TestNG.CartTests.emptyCartPage" />
+        <item itemvalue="TestNG.MainPageTests.bikesSubmenu" />
+        <item itemvalue="TestNG.MainPageTests.searchFieldTest" />
+        <item itemvalue="TestNG.MainPageTests.searchTest" />
       </list>
     </recent_temporary>
   </component>
@@ -231,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675648167697</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Registration page tests">
+      <created>1675679038075</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1675679038075</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -255,16 +272,17 @@
     <MESSAGE value="Registration radio buttons" />
     <MESSAGE value="Fixing flaky tests" />
     <MESSAGE value="Login verify page test, forgot password test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Login verify page test, forgot password test" />
+    <MESSAGE value="Registration page tests" />
+    <MESSAGE value="Adding more pages and tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding more pages and tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/Tests/RegistrationTests.java</url>
-          <line>89</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
+        <breakpoint type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="12" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
