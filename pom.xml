@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.company.project</groupId>
-    <artifactId>MyProject</artifactId>
+    <artifactId>BikeXpert</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>Archetype - MyProject</name>
+    <name>Archetype - BikeXpert</name>
     <url>http://maven.apache.org</url>
     <properties>
         <xmlSuite>runWithReports.xml</xmlSuite>
