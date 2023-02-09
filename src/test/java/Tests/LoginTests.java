@@ -19,9 +19,9 @@ import java.util.Iterator;
 
 public class LoginTests extends BaseTest{
 
-    @Test
+    @Test(priority = 1, groups = {"Smoke", "Regression"})
     public void verifyLoginPage(Method method){
-        test = ExtentTestManager.startTest(method.getName(), "Negative login tests with JSON");
+        test = ExtentTestManager.startTest(method.getName(), "Verify login page test");
         driver.get(baseUrl);
         MainPage mp = new MainPage(driver);
         mp.loginPage();
@@ -29,9 +29,9 @@ public class LoginTests extends BaseTest{
         lp.verifyLoginPage();
     }
 
-    @Test
+    @Test(priority = 2, groups = {"Regression"})
     public void forgotPassword(Method method) {
-        test = ExtentTestManager.startTest(method.getName(), "Negative login tests with JSON");
+        test = ExtentTestManager.startTest(method.getName(), "Forgot password flow test");
         driver.get(baseUrl);
         MainPage mp = new MainPage(driver);
 //        mp.agreeCookies();
@@ -69,7 +69,7 @@ public class LoginTests extends BaseTest{
         return dp.iterator();
     }
 
-    @Test(dataProvider = "loginJsonDp")
+    @Test(dataProvider = "loginJsonDp", priority = 3, groups = {"Regression"})
     public void negativeLoginWithJsonTest(LoginModel lm, Method method) {
         test = ExtentTestManager.startTest(method.getName(), "Negative login tests with JSON");
         driver.get(baseUrl);
@@ -90,7 +90,7 @@ public class LoginTests extends BaseTest{
     }
 
 
-    @Test(dataProvider = "loginJsonDp")
+    @Test(dataProvider = "loginJsonDp", priority = 4, groups = {"Smoke", "Regression"})
     public void positiveLoginWithJsonTest(LoginModel lm, Method method) {
         test = ExtentTestManager.startTest(method.getName(), "Positive login test with JSON");
         driver.get(baseUrl);
@@ -107,14 +107,22 @@ public class LoginTests extends BaseTest{
 //      login
         lp.login(lm.getAccount().getEmail(), lm.getAccount().getPassword());
         MyAccountPage map = new MyAccountPage(driver);
-        map.myAccount();
         Assert.assertEquals(map.getNameValue(), "Popa Maria");
         Assert.assertEquals(map.getEmailValue(), lm.getAccount().getEmail());
         Assert.assertEquals(map.getPhoneValue(), "0722000000");
         map.leftBoxMenuButtonsText();
     }
 
-    @Test(dependsOnMethods = {"positiveLoginWithJsonTest"} )
+    @Test(dependsOnMethods = {"positiveLoginWithJsonTest"}, priority = 5, groups = {"Smoke", "Regression"})
+    public void verifyMyAccountPage(Method method){
+        test = ExtentTestManager.startTest(method.getName(), "Positive login test with JSON");
+        MyAccountPage map = new MyAccountPage(driver);
+        map.myAccount();
+        map.leftBoxMenuButtonsText();
+    }
+
+
+    @Test(dependsOnMethods = {"positiveLoginWithJsonTest"}, priority = 6, groups = {"Smoke", "Regression"} )
     public void logout(Method method) {
         test = ExtentTestManager.startTest(method.getName(), "Negative login tests with JSON");
         MyAccountPage map = new MyAccountPage(driver);

@@ -9,9 +9,9 @@ import java.lang.reflect.Method;
 
 public class CartTests extends BaseTest{
 
-    @Test
+    @Test(groups = {"Regression"})
     public void emptyCartPage(Method method) {
-        test = ExtentTestManager.startTest(method.getName(), "Negative login tests with JSON");
+        test = ExtentTestManager.startTest(method.getName(), "Empty cart page test");
         driver.get(baseUrl);
         MainPage mp = new MainPage(driver);
         mp.cartButtonClick();

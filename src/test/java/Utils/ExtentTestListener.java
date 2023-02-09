@@ -39,7 +39,7 @@ public class ExtentTestListener extends BaseTest implements ITestListener {
     public void onTestFailure(ITestResult result) {
         Object testClass = result.getInstance();
         WebDriver drv = ((BaseTest) testClass).driver;
-        String base64Img = null;
+        String base64Img;
         try {
             base64Img = Base64.getEncoder().encodeToString(FileUtils.readFileToByteArray(new File(SeleniumUtils.takeScreenshot(drv))));
         } catch (IOException e) {

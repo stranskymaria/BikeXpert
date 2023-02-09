@@ -37,13 +37,16 @@ public class ExtentTestManager {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+
             test.log(Status.FAIL, "TEST FAILED !",
                     MediaEntityBuilder.createScreenCaptureFromBase64String(base64Img).build());
         }
         else if(result.getStatus() == ITestResult.SUCCESS) {
+
             test.log(Status.PASS, result.getTestName());
         }
         else {
+
             test.log(Status.SKIP, result.getTestName());
         }
         return test;

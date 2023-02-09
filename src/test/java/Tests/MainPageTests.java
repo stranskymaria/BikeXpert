@@ -10,9 +10,9 @@ import java.lang.reflect.Method;
 
 public class MainPageTests extends BaseTest{
 
-    @Test
+    @Test(groups = {"Regression"})
     public void wishlistNotLoggedTest(Method method){
-        test = ExtentTestManager.startTest(method.getName(), "Positive login test with JSON");
+        test = ExtentTestManager.startTest(method.getName(), "Wishlist from main page for not logged in test");
         driver.get(baseUrl);
         MainPage mp = new MainPage(driver);
         Assert.assertEquals(driver.getTitle(), "BikeXpert");
@@ -21,18 +21,18 @@ public class MainPageTests extends BaseTest{
         rp.verifyRegistrationPage();
     }
 
-    @Test
+    @Test(groups = {"Smoke", "Regression"})
     public void searchFieldTest(Method method) {
-        test = ExtentTestManager.startTest(method.getName(), "Positive login test with JSON");
+        test = ExtentTestManager.startTest(method.getName(), "Search field from maine page test");
         driver.get(baseUrl);
         MainPage mp = new MainPage(driver);
         mp.searchField("birdy rohloff");
 //        Assert.assertEquals(driver.getTitle(), "Cauta produse: birdy rohloff");
     }
 
-    @Test
+    @Test(groups = {"Smoke", "Regression"})
     public void bikesSubmenu (Method method) {
-        test = ExtentTestManager.startTest(method.getName(), "Positive login test with JSON");
+        test = ExtentTestManager.startTest(method.getName(), "Bikes submenu test");
         driver.get(baseUrl);
         MainPage mp = new MainPage(driver);
         mp.selectFromBikesSubmenu();

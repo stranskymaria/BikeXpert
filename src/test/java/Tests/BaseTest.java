@@ -8,9 +8,7 @@ import com.aventstack.extentreports.ExtentTest;
 import org.apache.commons.codec.binary.Base64;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.*;
 
 import java.sql.Timestamp;
 
@@ -22,7 +20,7 @@ public class BaseTest {
 //    browser from config file
 //    String browser = GenericUtils.getBrowserConfig(usedConfig);
 
-//   browser from command line
+    //   browser from command line
     String browser;
     String baseUrl = GenericUtils.createBaseUrl(usedConfig);
     Base64 base64 = new Base64();
@@ -32,7 +30,7 @@ public class BaseTest {
     String timestampEmail = timestamp.getTime() + "@gmail.com";
     String randomNumber = GenericUtils.createRandomNumber(6);
 
-    @BeforeTest
+    @BeforeClass(alwaysRun = true)
     public void beforeTest() {
         System.out.println(baseUrl);
         browser = System.getProperty("browser");
@@ -51,14 +49,19 @@ public class BaseTest {
 
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void getResult(ITestResult result) {
         test = ExtentTestManager.updateTest(test, driver, result);
     }
 
-    @AfterTest
+    @AfterTest(alwaysRun = true)
     public void afterTest() {
         driver.quit();
         ExtentTestManager.extent.flush();
+    }
+
+    @AfterClass(alwaysRun = true)
+    public void afterClass() {
+        driver.quit();
     }
 }

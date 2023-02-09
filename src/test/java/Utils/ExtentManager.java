@@ -9,9 +9,9 @@ public class ExtentManager {
 
     public synchronized static ExtentReports createExtentReports() {
         ExtentSparkReporter reporter = new ExtentSparkReporter(ConstantUtils.EXTENT_FOLDER + SeleniumUtils.getReportName());
-        reporter.config().setReportName("AUT 09 REPORT");
+        reporter.config().setReportName("BikeXpert REPORT");
         extentReports.attachReporter(reporter);
-        extentReports.setSystemInfo("AUTHOR", "Alex Gatu");
+        extentReports.setSystemInfo("AUTHOR", "Maria Stransky");
         extentReports.setSystemInfo("ENV", "local");
         extentReports.setSystemInfo("OS NAME", System.getProperty("os.name"));
         extentReports.setSystemInfo("OS VERSION", System.getProperty("os.version"));
