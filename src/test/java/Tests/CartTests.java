@@ -9,10 +9,8 @@ import java.lang.reflect.Method;
 
 public class CartTests extends BaseTest{
 
-    @Test(groups = {"Regression"})
-    public void emptyCartPage(Method method) {
-        test = ExtentTestManager.startTest(method.getName(), "Empty cart page test");
-        driver.get(baseUrl);
+    @Test(groups = {"Regression"}, description = "Empty cart page test")
+    public void emptyCartPage() {
         MainPage mp = new MainPage(driver);
         mp.cartButtonClick();
         CartPage cp = new CartPage(driver);

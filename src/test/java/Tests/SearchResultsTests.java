@@ -11,10 +11,8 @@ import java.lang.reflect.Method;
 
 public class SearchResultsTests extends BaseTest{
 
-    @Test(groups = {"Smoke", "Regression"})
-    public void verifyPage(Method method){
-        test = ExtentTestManager.startTest(method.getName(), "Wishlist from main page for not logged in test");
-        driver.get(baseUrl);
+    @Test(groups = {"Smoke", "Regression"}, description = "Wishlist from main page for not logged in test")
+    public void verifyPage(){
         MainPage mp = new MainPage(driver);
         mp.searchField("riese muller birdy city");
         SearchResultsPage srp = new SearchResultsPage(driver);

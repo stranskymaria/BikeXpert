@@ -1,5 +1,6 @@
 package Pages;
 
+import Utils.SeleniumUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -81,6 +82,7 @@ public class MainPage extends BasePage{
     public void wishlistNotLogged () {
         WebElement wishlistButton = driver.findElement(By.cssSelector(wishlistButtonSelector));
         wishlistButton.click();
+        SeleniumUtils.waitForGenericElement(driver, By.cssSelector(wishlistNotLoggedTextSelector), 10);
         Assert.assertEquals(driver.findElement(By.cssSelector(wishlistNotLoggedTextSelector)).getText(), "Trebuie sa fiti logat pentru a vedea produsele favorite.");
         WebElement wishlistNotLoggedButton = driver.findElement(By.cssSelector(wishlistNotLoggedButtonSelector));
         Assert.assertTrue(wishlistNotLoggedButton.isDisplayed());

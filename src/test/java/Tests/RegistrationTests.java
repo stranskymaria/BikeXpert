@@ -18,10 +18,8 @@ import java.util.Iterator;
 
 public class RegistrationTests extends BaseTest{
 
-    @Test(priority = 1, groups = {"Smoke", "Regression"})
-    public void verifyRegistrationPage(Method method){
-        test = ExtentTestManager.startTest(method.getName(), "Verify registration page test");
-        driver.get(baseUrl);
+    @Test(priority = 1, groups = {"Smoke", "Regression"}, description = "Verify registration page test")
+    public void verifyRegistrationPage(){
         MainPage mp = new MainPage(driver);
         mp.registrationPage();
         RegistrationPage rp = new RegistrationPage(driver);
@@ -77,10 +75,8 @@ public class RegistrationTests extends BaseTest{
         return Tools.replaceElements(resultSet.getString(element), "''", "");
     }
 
-    @Test(dataProvider = "RegistrationSQLdp", priority = 2, groups = {"Regression"})
-    public void negativeRegistrationWithDBTest(RegistrationModel rm, Method method) {
-        test = ExtentTestManager.startTest(method.getName(), "Negative registration tests with SQL");
-        driver.get(baseUrl);
+    @Test(dataProvider = "RegistrationSQLdp", priority = 2, groups = {"Regression"}, description = "Negative registration tests with SQL")
+    public void negativeRegistrationWithDBTest(RegistrationModel rm) {
 //       open registration page
         MainPage mp = new MainPage(driver);
         mp.registrationPage();
@@ -123,10 +119,8 @@ public class RegistrationTests extends BaseTest{
     }
 
 
-    @Test(dataProvider = "RegistrationSQLdp", priority = 6, groups = {"Smoke", "Regression"})
-    public void positiveRegistrationWithDBTest(RegistrationModel rm, Method method) throws InterruptedException {
-        test = ExtentTestManager.startTest(method.getName(), "positive registration test with SQL");
-        driver.get(baseUrl);
+    @Test(dataProvider = "RegistrationSQLdp", priority = 6, groups = {"Smoke", "Regression"}, description = "positive registration test with SQL")
+    public void positiveRegistrationWithDBTest(RegistrationModel rm) {
 //       open registration page
         MainPage mp = new MainPage(driver);
         mp.registrationPage();
@@ -157,30 +151,24 @@ public class RegistrationTests extends BaseTest{
 
     }
 
-    @Test(priority = 3, groups = {"Smoke", "Regression"})
-    public void termsCheckboxTest(Method method) {
-        test = ExtentTestManager.startTest(method.getName(), "Terms checkbox from registration page test");
-        driver.get(baseUrl);
+    @Test(priority = 3, groups = {"Smoke", "Regression"}, description = "Terms checkbox from registration page test")
+    public void termsCheckboxTest() {
         MainPage mp = new MainPage(driver);
         mp.registrationPage();
         RegistrationPage rp = new RegistrationPage(driver);
         rp.termsCheckbox();
     }
 
-    @Test(priority = 4, groups = {"Regression"})
-    public void appellationRadioButtonsTest(Method method) {
-        test = ExtentTestManager.startTest(method.getName(), "Appellation radio buttons from registration page test");
-        driver.get(baseUrl);
+    @Test(priority = 4, groups = {"Regression"}, description = "Appellation radio buttons from registration page test")
+    public void appellationRadioButtonsTest() {
         MainPage mp = new MainPage(driver);
         mp.registrationPage();
         RegistrationPage rp = new RegistrationPage(driver);
         rp.appellationRadioButtons();
     }
 
-    @Test(priority = 5, groups = {"Regression"})
-    public void newsletterCheckboxTest(Method method) {
-        test = ExtentTestManager.startTest(method.getName(), "Newsletter checkbox from registration page test");
-        driver.get(baseUrl);
+    @Test(priority = 5, groups = {"Regression"}, description = "Newsletter checkbox from registration page test")
+    public void newsletterCheckboxTest() {
         MainPage mp = new MainPage(driver);
         mp.registrationPage();
         RegistrationPage rp = new RegistrationPage(driver);

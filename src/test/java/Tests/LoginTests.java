@@ -19,24 +19,17 @@ import java.util.Iterator;
 
 public class LoginTests extends BaseTest{
 
-    @Test(priority = 1, groups = {"Smoke", "Regression"})
-    public void verifyLoginPage(Method method){
-        test = ExtentTestManager.startTest(method.getName(), "Verify login page test");
-        driver.get(baseUrl);
+    @Test(priority = 1, groups = {"Smoke", "Regression"}, description = "Verify login page test")
+    public void verifyLoginPage(){
         MainPage mp = new MainPage(driver);
         mp.loginPage();
         LoginPage lp = new LoginPage(driver);
         lp.verifyLoginPage();
     }
 
-    @Test(priority = 2, groups = {"Regression"})
-    public void forgotPassword(Method method) {
-        test = ExtentTestManager.startTest(method.getName(), "Forgot password flow test");
-        driver.get(baseUrl);
+    @Test(priority = 2, groups = {"Regression"}, description = "Forgot password flow test")
+    public void forgotPassword() {
         MainPage mp = new MainPage(driver);
-//        mp.agreeCookies();
-//        mp.accountButton();
-//        mp.loginPageLink();
         mp.loginPage();
         LoginPage lp = new LoginPage(driver);
         lp.forgotPasswordClick();
@@ -69,10 +62,8 @@ public class LoginTests extends BaseTest{
         return dp.iterator();
     }
 
-    @Test(dataProvider = "loginJsonDp", priority = 3, groups = {"Regression"})
-    public void negativeLoginWithJsonTest(LoginModel lm, Method method) {
-        test = ExtentTestManager.startTest(method.getName(), "Negative login tests with JSON");
-        driver.get(baseUrl);
+    @Test(dataProvider = "loginJsonDp", priority = 3, groups = {"Regression"}, description = "Negative login tests with JSON")
+    public void negativeLoginWithJsonTest(LoginModel lm) {
 //       open login page
         MainPage mp = new MainPage(driver);
         mp.loginPage();
@@ -90,10 +81,8 @@ public class LoginTests extends BaseTest{
     }
 
 
-    @Test(dataProvider = "loginJsonDp", priority = 4, groups = {"Smoke", "Regression"})
-    public void positiveLoginWithJsonTest(LoginModel lm, Method method) {
-        test = ExtentTestManager.startTest(method.getName(), "Positive login test with JSON");
-        driver.get(baseUrl);
+    @Test(dataProvider = "loginJsonDp", priority = 4, groups = {"Smoke", "Regression"}, description = "Positive login test with JSON")
+    public void positiveLoginWithJsonTest(LoginModel lm) {
 //       open login page
         System.out.println("Open Login page");
         MainPage mp = new MainPage(driver);
@@ -113,18 +102,16 @@ public class LoginTests extends BaseTest{
         map.leftBoxMenuButtonsText();
     }
 
-    @Test(dependsOnMethods = {"positiveLoginWithJsonTest"}, priority = 5, groups = {"Smoke", "Regression"})
-    public void verifyMyAccountPage(Method method){
-        test = ExtentTestManager.startTest(method.getName(), "Positive login test with JSON");
+    @Test(dependsOnMethods = {"positiveLoginWithJsonTest"}, priority = 5, groups = {"Smoke", "Regression"}, description = "Positive login test with JSON")
+    public void verifyMyAccountPage(){
         MyAccountPage map = new MyAccountPage(driver);
         map.myAccount();
         map.leftBoxMenuButtonsText();
     }
 
 
-    @Test(dependsOnMethods = {"positiveLoginWithJsonTest"}, priority = 6, groups = {"Smoke", "Regression"} )
-    public void logout(Method method) {
-        test = ExtentTestManager.startTest(method.getName(), "Negative login tests with JSON");
+    @Test(dependsOnMethods = {"positiveLoginWithJsonTest"}, priority = 6, groups = {"Smoke", "Regression"}, description = "Negative login tests with JSON")
+    public void logout() {
         MyAccountPage map = new MyAccountPage(driver);
         map.logout();
     }

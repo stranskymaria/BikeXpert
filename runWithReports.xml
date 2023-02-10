@@ -9,7 +9,7 @@
         </groups>
         <classes>
             <class name="Tests.MainPageTests"/>
-            <class name="Tests.LoginTests"/>
+<!--            <class name="Tests.LoginTests"/>-->
 <!--            <class name="Tests.RegistrationTests"/>-->
 
 <!--            <class name="Tests.FoldableBikesCategoryTests"/>-->

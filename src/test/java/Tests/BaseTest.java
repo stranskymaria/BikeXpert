@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 
+import java.lang.reflect.Method;
 import java.sql.Timestamp;
 
 public class BaseTest {
@@ -30,11 +31,13 @@ public class BaseTest {
     String timestampEmail = timestamp.getTime() + "@gmail.com";
     String randomNumber = GenericUtils.createRandomNumber(6);
 
-//    @BeforeMethod(alwaysRun = true)
-//    public void beforeMethod() {
+    @BeforeMethod(alwaysRun = true)
+    public void beforeMethod(Method method, ITestResult result) {
+        String description = result.getMethod().getDescription();
 //        test = ExtentTestManager.startTest(method.getName(), "Wishlist from main page for not logged in test");
-//        driver.get(baseUrl);
-//    }
+        test = ExtentTestManager.startTest(method.getName(), description);
+
+    }
 
     @BeforeClass(alwaysRun = true)
     public void beforeClass() {
@@ -47,6 +50,7 @@ public class BaseTest {
         System.out.println("Used browser:" + browser);
 
         driver = BrowserUtils.getBrowser(browser, usedConfig);
+        driver.get(baseUrl);
         dbHostname = GenericUtils.getDBHostname(usedConfig);
         dbUser = GenericUtils.getDBUser(usedConfig);
         dbPassword = GenericUtils.getDBPassword(usedConfig);
