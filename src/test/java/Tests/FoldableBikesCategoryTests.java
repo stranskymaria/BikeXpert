@@ -9,15 +9,24 @@ import java.lang.reflect.Method;
 
 public class FoldableBikesCategoryTests extends BaseTest{
 
-    @Test(groups = {"Regression"})
-    public void sortingTest(Method method) {
-        test = ExtentTestManager.startTest(method.getName(), "Verify page, default sorting option, change sorting option, open specific product page tests");
+    @Test(groups = {"Smoke", "Regression"})
+    public void verifyPage(Method method) {
+        test = ExtentTestManager.startTest(method.getName(), "Verify page and default sorting option test");
         driver.get(baseUrl);
         MainPage mp = new MainPage(driver);
         mp.selectFromBikesSubmenu();
         FoldableBikesCategoryPage fp = new FoldableBikesCategoryPage(driver);
         fp.verifyPage();
-        fp.sorting();
+    }
+
+    @Test(priority = 1, groups = {"Smoke", "Regression"})
+    public void changeSortingTest(Method method) {
+        test = ExtentTestManager.startTest(method.getName(), "Verify change sorting option, open specific product page tests");
+        driver.get(baseUrl);
+        MainPage mp = new MainPage(driver);
+        mp.selectFromBikesSubmenu();
+        FoldableBikesCategoryPage fp = new FoldableBikesCategoryPage(driver);
+        fp.changeSorting();
     }
 
 }

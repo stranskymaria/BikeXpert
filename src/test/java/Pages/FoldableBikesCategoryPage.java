@@ -20,14 +20,16 @@ public class FoldableBikesCategoryPage extends BasePage{
     public void verifyPage() {
         Assert.assertEquals(driver.findElement(By.cssSelector(headerTextSelector)).getText(), " Pliabile");
         Assert.assertEquals(driver.findElement(By.cssSelector(sortingTextSelector)).getText(), "Sorteaza dupa:");
-    }
-    public void sorting() {
         WebElement sorting = driver.findElement(By.id(sortingSelector));
         Select se = new Select(sorting);
 
 //        verify default sorting
         WebElement option = se.getFirstSelectedOption();
         Assert.assertEquals(option.getText(), "Reducere");
+    }
+    public void changeSorting() {
+        WebElement sorting = driver.findElement(By.id(sortingSelector));
+        Select se = new Select(sorting);
 
 //        select another sorting option
         sorting.click();
@@ -54,4 +56,5 @@ public class FoldableBikesCategoryPage extends BasePage{
         JavascriptExecutor jse = (JavascriptExecutor)driver;
         jse.executeScript("arguments[0].click();", thirdItemDetailsButton);
     }
-}
+
+ }

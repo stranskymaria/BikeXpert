@@ -4,20 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a23810a2-577d-40ea-b470-7099d3183ff2" name="Changes" comment="Adding more pages and tests">
-      <change afterPath="$PROJECT_DIR$/runWithReports.xml" afterDir="false" />
+    <list default="true" id="a23810a2-577d-40ea-b470-7099d3183ff2" name="Changes" comment="Fixes for changing browser at runtime, running from xml.">
+      <change afterPath="$PROJECT_DIR$/src/test/java/Pages/SearchResultsPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Tests/ProductTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Tests/SearchResultsTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runWithReports.xml" beforeDir="false" afterPath="$PROJECT_DIR$/runWithReports.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Pages/FoldableBikesCategoryPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/FoldableBikesCategoryPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Pages/ProductPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/ProductPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Tests/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/BaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Tests/CartTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/CartTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Tests/FoldableBikesCategoryTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/FoldableBikesCategoryTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Tests/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/LoginTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Tests/MainPageTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/MainPageTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Tests/MyAccountTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/MyAccountTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Tests/MyAccountTests.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Tests/RegistrationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/RegistrationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Utils/ExtentManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Utils/ExtentManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Utils/ExtentTestListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Utils/ExtentTestListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Utils/ExtentTestManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Utils/ExtentTestManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Utils/SeleniumUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Utils/SeleniumUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,18 +61,8 @@
       <recent name="C:\Users\smadd\IdeaProjects" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.LoginTests.verifyMyAccountPage">
-    <configuration name="C:/Users/smadd/IdeaProjects/BikeXpert/runWithReports.xml (1)" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="BikeXpert" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/runWithReports.xml" />
-      <option name="TEST_OBJECT" value="SUITE" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LoginTests.logout" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="TestNG.ProductTests.addToCart">
+    <configuration name="FoldableBikesCategoryTests" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="BikeXpert" />
       <extension name="coverage">
         <pattern>
@@ -81,8 +71,25 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.LoginTests" />
-      <option name="METHOD_NAME" value="logout" />
+      <option name="MAIN_CLASS_NAME" value="Tests.FoldableBikesCategoryTests" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainPageTests.searchFieldTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="BikeXpert" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.MainPageTests" />
+      <option name="METHOD_NAME" value="searchFieldTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -90,7 +97,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTests.verifyMenuButtonsMyAccountPage" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="ProductTests.addToCart" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="BikeXpert" />
       <extension name="coverage">
         <pattern>
@@ -99,8 +106,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.LoginTests" />
-      <option name="METHOD_NAME" value="verifyMenuButtonsMyAccountPage" />
+      <option name="MAIN_CLASS_NAME" value="Tests.ProductTests" />
+      <option name="METHOD_NAME" value="addToCart" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -108,7 +115,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTests.verifyMyAccountPage" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="ProductTests.verifyPage" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="BikeXpert" />
       <extension name="coverage">
         <pattern>
@@ -117,8 +124,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.LoginTests" />
-      <option name="METHOD_NAME" value="verifyMyAccountPage" />
+      <option name="MAIN_CLASS_NAME" value="Tests.ProductTests" />
+      <option name="METHOD_NAME" value="verifyPage" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -126,7 +133,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MyAccountTests.logout" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="SearchResultsTests.verifyPage" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="BikeXpert" />
       <extension name="coverage">
         <pattern>
@@ -135,8 +142,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.MyAccountTests" />
-      <option name="METHOD_NAME" value="logout" />
+      <option name="MAIN_CLASS_NAME" value="Tests.SearchResultsTests" />
+      <option name="METHOD_NAME" value="verifyPage" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -145,19 +152,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="TestNG.LoginTests.logout" />
-      <item itemvalue="TestNG.LoginTests.verifyMenuButtonsMyAccountPage" />
-      <item itemvalue="TestNG.LoginTests.verifyMyAccountPage" />
-      <item itemvalue="TestNG.MyAccountTests.logout" />
-      <item itemvalue="TestNG.C:/Users/smadd/IdeaProjects/BikeXpert/runWithReports.xml (1)" />
+      <item itemvalue="TestNG.FoldableBikesCategoryTests" />
+      <item itemvalue="TestNG.MainPageTests.searchFieldTest" />
+      <item itemvalue="TestNG.ProductTests.addToCart" />
+      <item itemvalue="TestNG.ProductTests.verifyPage" />
+      <item itemvalue="TestNG.SearchResultsTests.verifyPage" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.LoginTests.verifyMyAccountPage" />
-        <item itemvalue="TestNG.LoginTests.logout" />
-        <item itemvalue="TestNG.LoginTests.verifyMenuButtonsMyAccountPage" />
-        <item itemvalue="TestNG.C:/Users/smadd/IdeaProjects/BikeXpert/runWithReports.xml (1)" />
-        <item itemvalue="TestNG.MyAccountTests.logout" />
+        <item itemvalue="TestNG.ProductTests.addToCart" />
+        <item itemvalue="TestNG.ProductTests.verifyPage" />
+        <item itemvalue="TestNG.SearchResultsTests.verifyPage" />
+        <item itemvalue="TestNG.MainPageTests.searchFieldTest" />
+        <item itemvalue="TestNG.FoldableBikesCategoryTests" />
       </list>
     </recent_temporary>
   </component>
@@ -261,7 +268,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675849277846</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Fixes for changing browser at runtime, running from xml.">
+      <created>1675976477245</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1675976477245</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -287,7 +301,8 @@
     <MESSAGE value="Login verify page test, forgot password test" />
     <MESSAGE value="Registration page tests" />
     <MESSAGE value="Adding more pages and tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding more pages and tests" />
+    <MESSAGE value="Fixes for changing browser at runtime, running from xml." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes for changing browser at runtime, running from xml." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

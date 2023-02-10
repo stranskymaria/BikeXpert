@@ -77,5 +77,14 @@ public class SeleniumUtils {
         return "extentReport_" + timestamp.getTime() + ".html";
     }
 
-
+      public static void pause(long millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }
+
+
+

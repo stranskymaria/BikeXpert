@@ -3,6 +3,9 @@ package Tests;
 import Pages.MainPage;
 import Pages.RegistrationPage;
 import Utils.ExtentTestManager;
+import Utils.SeleniumUtils;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -27,7 +30,8 @@ public class MainPageTests extends BaseTest{
         driver.get(baseUrl);
         MainPage mp = new MainPage(driver);
         mp.searchField("birdy rohloff");
-//        Assert.assertEquals(driver.getTitle(), "Cauta produse: birdy rohloff");
+        SeleniumUtils.pause(2000);
+        Assert.assertEquals(driver.getTitle(), "Cauta produse: birdy rohloff");
     }
 
     @Test(groups = {"Smoke", "Regression"})

@@ -30,8 +30,14 @@ public class BaseTest {
     String timestampEmail = timestamp.getTime() + "@gmail.com";
     String randomNumber = GenericUtils.createRandomNumber(6);
 
+//    @BeforeMethod(alwaysRun = true)
+//    public void beforeMethod() {
+//        test = ExtentTestManager.startTest(method.getName(), "Wishlist from main page for not logged in test");
+//        driver.get(baseUrl);
+//    }
+
     @BeforeClass(alwaysRun = true)
-    public void beforeTest() {
+    public void beforeClass() {
         System.out.println(baseUrl);
         browser = System.getProperty("browser");
         if (browser == null)

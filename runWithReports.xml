@@ -10,7 +10,6 @@
         <classes>
             <class name="Tests.MainPageTests"/>
             <class name="Tests.LoginTests"/>
-            <class name="Tests.MyAccountTests"/>
 <!--            <class name="Tests.RegistrationTests"/>-->
 
 <!--            <class name="Tests.FoldableBikesCategoryTests"/>-->

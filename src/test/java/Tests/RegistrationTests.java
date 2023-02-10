@@ -5,6 +5,7 @@ import Pages.RegistrationConfirmationPage;
 import Pages.RegistrationPage;
 import Tests.ObjectModels.RegistrationModel;
 import Utils.ExtentTestManager;
+import Utils.SeleniumUtils;
 import Utils.Tools;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -144,7 +145,7 @@ public class RegistrationTests extends BaseTest{
                 rm.getAccount().getConfirmPassword());
         System.out.println(timestampEmail);
         rp.termsCheckbox();
-        Thread.sleep(5000);
+        SeleniumUtils.pause(5000);
 //        driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
         rp.submitRegistration();
         System.out.println("submit pressed");
