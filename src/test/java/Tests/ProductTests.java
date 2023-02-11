@@ -29,10 +29,6 @@ public class ProductTests extends BaseTest {
 
     @Test(dependsOnMethods = {"addToCart"}, priority = 3, groups = {"Smoke", "Regression"}, description = "Verify add to cart popup test")
     public void verifyAddToCartPopup() {
-//        MainPage mp = new MainPage(driver);
-//        mp.searchField("riese muller birdy city");
-//        SearchResultsPage srp = new SearchResultsPage(driver);
-//        srp.openProductPage();
         ProductPage pp = new ProductPage(driver);
         pp.verifyAddToCartPopup();
     }

@@ -6,7 +6,6 @@ import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.WebDriver;
-import org.testng.ITest;
 import org.testng.ITestResult;
 
 import java.io.File;

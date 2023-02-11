@@ -17,7 +17,6 @@ public class ExtentTestListener extends BaseTest implements ITestListener {
 
     static String getTestMethodName(ITestResult iTestResult) {
         return iTestResult.getMethod().getConstructorOrMethod().getName();
-        //return iTestResult.getTestName();
     }
 
     @Override

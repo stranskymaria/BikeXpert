@@ -18,10 +18,6 @@ public class BaseTest {
     public WebDriver driver;
     String usedConfig = ConstantUtils.CONFIG_FILE;
     String dbHostname, dbUser, dbSchema, dbPassword, dbPort;
-//    browser from config file
-//    String browser = GenericUtils.getBrowserConfig(usedConfig);
-
-    //   browser from command line
     String browser;
     String baseUrl = GenericUtils.createBaseUrl(usedConfig);
     Base64 base64 = new Base64();
