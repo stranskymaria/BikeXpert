@@ -3,7 +3,7 @@ package Tests;
 import Pages.LoginPage;
 import Pages.MainPage;
 import Pages.MyAccountPage;
-import Tests.ObjectModels.LoginModel;
+import ObjectModels.LoginModel;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;

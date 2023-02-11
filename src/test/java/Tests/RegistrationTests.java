@@ -3,7 +3,7 @@ package Tests;
 import Pages.MainPage;
 import Pages.RegistrationConfirmationPage;
 import Pages.RegistrationPage;
-import Tests.ObjectModels.RegistrationModel;
+import ObjectModels.RegistrationModel;
 import Utils.SeleniumUtils;
 import Utils.Tools;
 import org.testng.Assert;

@@ -1,4 +1,4 @@
-package Tests.ObjectModels;
+package ObjectModels;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
