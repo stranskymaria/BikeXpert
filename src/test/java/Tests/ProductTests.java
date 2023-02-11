@@ -3,10 +3,7 @@ package Tests;
 import Pages.MainPage;
 import Pages.ProductPage;
 import Pages.SearchResultsPage;
-import Utils.ExtentTestManager;
 import org.testng.annotations.Test;
-
-import java.lang.reflect.Method;
 
 public class ProductTests extends BaseTest {
 

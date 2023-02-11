@@ -2,16 +2,9 @@ package Tests;
 
 import Pages.MainPage;
 import Pages.RegistrationPage;
-import Utils.ExtentTestManager;
 import Utils.SeleniumUtils;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.lang.reflect.Method;
 
 public class MainPageTests extends BaseTest{
 

@@ -3,7 +3,6 @@ package Tests;
 import Pages.LoginPage;
 import Pages.MainPage;
 import Pages.MyAccountPage;
-import Utils.ExtentTestManager;
 import Tests.ObjectModels.LoginModel;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.testng.Assert;

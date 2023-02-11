@@ -4,7 +4,6 @@ import Pages.MainPage;
 import Pages.RegistrationConfirmationPage;
 import Pages.RegistrationPage;
 import Tests.ObjectModels.RegistrationModel;
-import Utils.ExtentTestManager;
 import Utils.SeleniumUtils;
 import Utils.Tools;
 import org.testng.Assert;
