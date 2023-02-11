@@ -4,6 +4,8 @@ import Pages.MainPage;
 import Pages.RegistrationPage;
 import Utils.ExtentTestManager;
 import Utils.SeleniumUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -12,6 +14,13 @@ import org.testng.annotations.Test;
 import java.lang.reflect.Method;
 
 public class MainPageTests extends BaseTest{
+
+    @Test(groups = {"Regression"}, description = "Agree Cookies Test")
+    public void agreeCookiesTest(){
+        MainPage mp = new MainPage(driver);
+        Assert.assertEquals(driver.getTitle(), "BikeXpert");
+        mp.agreeCookies();
+    }
 
     @Test(groups = {"Regression"}, description = "Wishlist from main page for not logged in test")
     public void wishlistNotLoggedTest(){

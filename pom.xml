@@ -10,7 +10,7 @@
     <name>Archetype - BikeXpert</name>
     <url>http://maven.apache.org</url>
     <properties>
-        <xmlSuite>runWithReports.xml</xmlSuite>
+        <xmlSuite>smokeAndRegressionTestSuite.xml</xmlSuite>
         <webdriverManagerVersion>5.3.1</webdriverManagerVersion>
         <seleniumVersion>3.141.59</seleniumVersion>
         <lombokVersion>1.18.24</lombokVersion>

@@ -75,8 +75,10 @@ public class RegistrationTests extends BaseTest{
         return Tools.replaceElements(resultSet.getString(element), "''", "");
     }
 
-    @Test(dataProvider = "RegistrationSQLdp", priority = 2, groups = {"Regression"}, description = "Negative registration tests with SQL")
+    @Test(dataProvider = "RegistrationSQLdp", priority = 2, groups = {"Regression"},
+            description = "Negative registration tests with SQL")
     public void negativeRegistrationWithDBTest(RegistrationModel rm) {
+        driver.get(baseUrl);
 //       open registration page
         MainPage mp = new MainPage(driver);
         mp.registrationPage();
@@ -119,8 +121,10 @@ public class RegistrationTests extends BaseTest{
     }
 
 
-    @Test(dataProvider = "RegistrationSQLdp", priority = 6, groups = {"Smoke", "Regression"}, description = "positive registration test with SQL")
+    @Test(dataProvider = "RegistrationSQLdp", priority = 6, groups = {"Smoke", "Regression"},
+            description = "Positive registration test with SQL")
     public void positiveRegistrationWithDBTest(RegistrationModel rm) {
+        driver.get(baseUrl);
 //       open registration page
         MainPage mp = new MainPage(driver);
         mp.registrationPage();

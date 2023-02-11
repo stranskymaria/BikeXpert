@@ -10,6 +10,7 @@ import org.testng.Assert;
 public class MainPage extends BasePage{
 
     private String agreeCookiesSelector = "body > section > div.container > header > div.smaller_right > input"; //CSS
+    private String cookiesBarSelector = "body > section > div.container > header";
     private String searchInputSelector = "#header > div.top-header-section.t-top-header-background > div > div.left.search-section.hide-on-mob > div > form > div > input"; //CSS
     private String searchButtonSelector = "#header > div.top-header-section.t-top-header-background > div > div.left.search-section.hide-on-mob > div > form > div > div > button > i";
     private String accountButtonSelector = "login-link"; //CSS
@@ -58,6 +59,8 @@ public class MainPage extends BasePage{
         if (agreeCookiesButton.isDisplayed()) {
             agreeCookiesButton.click();
         }
+        SeleniumUtils.pause(2000);
+        Assert.assertFalse(driver.findElement(By.cssSelector(cookiesBarSelector)).isDisplayed());
     }
 
     public void accountButton() {
@@ -82,7 +85,7 @@ public class MainPage extends BasePage{
     public void wishlistNotLogged () {
         WebElement wishlistButton = driver.findElement(By.cssSelector(wishlistButtonSelector));
         wishlistButton.click();
-        SeleniumUtils.waitForGenericElement(driver, By.cssSelector(wishlistNotLoggedTextSelector), 10);
+        SeleniumUtils.waitForTextOnSite(driver, By.cssSelector(wishlistNotLoggedTextSelector), 10, "Trebuie sa fiti logat pentru a vedea");
         Assert.assertEquals(driver.findElement(By.cssSelector(wishlistNotLoggedTextSelector)).getText(), "Trebuie sa fiti logat pentru a vedea produsele favorite.");
         WebElement wishlistNotLoggedButton = driver.findElement(By.cssSelector(wishlistNotLoggedButtonSelector));
         Assert.assertTrue(wishlistNotLoggedButton.isDisplayed());

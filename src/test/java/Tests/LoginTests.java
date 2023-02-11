@@ -102,7 +102,8 @@ public class LoginTests extends BaseTest{
         map.leftBoxMenuButtonsText();
     }
 
-    @Test(dependsOnMethods = {"positiveLoginWithJsonTest"}, priority = 5, groups = {"Smoke", "Regression"}, description = "Positive login test with JSON")
+    @Test(dependsOnMethods = {"positiveLoginWithJsonTest"}, priority = 5, groups = {"Smoke", "Regression"},
+            description = "Positive login test with JSON")
     public void verifyMyAccountPage(){
         MyAccountPage map = new MyAccountPage(driver);
         map.myAccount();
@@ -110,7 +111,8 @@ public class LoginTests extends BaseTest{
     }
 
 
-    @Test(dependsOnMethods = {"positiveLoginWithJsonTest"}, priority = 6, groups = {"Smoke", "Regression"}, description = "Negative login tests with JSON")
+    @Test(dependsOnMethods = {"positiveLoginWithJsonTest"}, priority = 6, groups = {"Smoke", "Regression"},
+            description = "Negative login tests with JSON")
     public void logout() {
         MyAccountPage map = new MyAccountPage(driver);
         map.logout();

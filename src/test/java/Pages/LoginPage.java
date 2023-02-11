@@ -1,5 +1,6 @@
 package Pages;
 
+import Utils.SeleniumUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -53,6 +54,7 @@ public class LoginPage extends BasePage {
         WebElement emailResetPasswordInput = driver.findElement(By.cssSelector(emailResetPasswordInputSelector));
         WebElement submitSendPasswordButton = driver.findElement(By.cssSelector(submitSendPasswordButtonSelector));
         Assert.assertEquals(emailResetPasswordText.getText(), "Introdu mai jos adresa de e-mail pentru care doresti sa resetam parola:");
+        SeleniumUtils.waitForTextOnSite(driver, By.cssSelector(submitSendPasswordButtonSelector), 10, "Trimite");
         Assert.assertEquals(submitSendPasswordButton.getText(), "Trimite parola");
         emailResetPasswordInput.clear();
         emailResetPasswordInput.sendKeys(email);

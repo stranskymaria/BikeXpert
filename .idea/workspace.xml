@@ -4,18 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a23810a2-577d-40ea-b470-7099d3183ff2" name="Changes" comment="Adding more tests">
+    <list default="true" id="a23810a2-577d-40ea-b470-7099d3183ff2" name="Changes" comment="Moving driver.get(baseUrl); from individual @Test to @BeforeClass&#10;Moving test = ExtentTestManager.startTest(method.getName(), &quot;Wishlist from main page for not logged in test&quot;); from individual @Test to @BeforeMethod">
+      <change afterPath="$PROJECT_DIR$/smokeAndRegressionTestSuite.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runWithReports.xml" beforeDir="false" afterPath="$PROJECT_DIR$/runWithReports.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runWithReports.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Pages/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/LoginPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Pages/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/MainPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Tests/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/BaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Tests/CartTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/CartTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Tests/FoldableBikesCategoryTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/FoldableBikesCategoryTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Pages/ProductPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Pages/ProductPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Tests/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/LoginTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Tests/MainPageTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/MainPageTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Tests/ProductTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/ProductTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Tests/RegistrationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/RegistrationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Tests/SearchResultsTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/SearchResultsTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,26 +59,18 @@
       <recent name="C:\Users\smadd\IdeaProjects" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.LoginTests">
-    <configuration name="CartTests.emptyCartPage" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="TestNG.C:/Users/smadd/IdeaProjects/BikeXpert/smokeAndRegressionTestSuite.xml">
+    <configuration name="C:/Users/smadd/IdeaProjects/BikeXpert/smokeAndRegressionTestSuite.xml" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="BikeXpert" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.CartTests" />
-      <option name="METHOD_NAME" value="emptyCartPage" />
-      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/smokeAndRegressionTestSuite.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
       <properties />
       <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTests" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginTests.verifyMyAccountPage" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="BikeXpert" />
       <extension name="coverage">
         <pattern>
@@ -88,24 +80,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
       <option name="MAIN_CLASS_NAME" value="Tests.LoginTests" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LoginTests.logout" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="BikeXpert" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.LoginTests" />
-      <option name="METHOD_NAME" value="logout" />
+      <option name="METHOD_NAME" value="verifyMyAccountPage" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -113,7 +88,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainPageTests" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="ProductTests" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="BikeXpert" />
       <extension name="coverage">
         <pattern>
@@ -122,7 +97,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.MainPageTests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.ProductTests" />
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
@@ -130,7 +105,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainPageTests.wishlistNotLoggedTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="ProductTests.verifyAddToCartPopup" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="BikeXpert" />
       <extension name="coverage">
         <pattern>
@@ -139,9 +114,26 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.MainPageTests" />
-      <option name="METHOD_NAME" value="wishlistNotLoggedTest" />
+      <option name="MAIN_CLASS_NAME" value="Tests.ProductTests" />
+      <option name="METHOD_NAME" value="verifyAddToCartPopup" />
       <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegistrationTests" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="BikeXpert" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.RegistrationTests" />
+      <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
       <method v="2">
@@ -149,19 +141,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="TestNG.CartTests.emptyCartPage" />
-      <item itemvalue="TestNG.LoginTests" />
-      <item itemvalue="TestNG.LoginTests.logout" />
-      <item itemvalue="TestNG.MainPageTests" />
-      <item itemvalue="TestNG.MainPageTests.wishlistNotLoggedTest" />
+      <item itemvalue="TestNG.C:/Users/smadd/IdeaProjects/BikeXpert/smokeAndRegressionTestSuite.xml" />
+      <item itemvalue="TestNG.LoginTests.verifyMyAccountPage" />
+      <item itemvalue="TestNG.ProductTests" />
+      <item itemvalue="TestNG.ProductTests.verifyAddToCartPopup" />
+      <item itemvalue="TestNG.RegistrationTests" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.LoginTests" />
-        <item itemvalue="TestNG.CartTests.emptyCartPage" />
-        <item itemvalue="TestNG.LoginTests.logout" />
-        <item itemvalue="TestNG.MainPageTests.wishlistNotLoggedTest" />
-        <item itemvalue="TestNG.MainPageTests" />
+        <item itemvalue="TestNG.C:/Users/smadd/IdeaProjects/BikeXpert/smokeAndRegressionTestSuite.xml" />
+        <item itemvalue="TestNG.RegistrationTests" />
+        <item itemvalue="TestNG.ProductTests" />
+        <item itemvalue="TestNG.ProductTests.verifyAddToCartPopup" />
+        <item itemvalue="TestNG.LoginTests.verifyMyAccountPage" />
       </list>
     </recent_temporary>
   </component>
@@ -279,7 +271,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676057307338</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Moving driver.get(baseUrl); from individual @Test to @BeforeClass&#10;Moving test = ExtentTestManager.startTest(method.getName(), &quot;Wishlist from main page for not logged in test&quot;); from individual @Test to @BeforeMethod">
+      <created>1676064063962</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1676064063962</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -307,7 +306,8 @@
     <MESSAGE value="Adding more pages and tests" />
     <MESSAGE value="Fixes for changing browser at runtime, running from xml." />
     <MESSAGE value="Adding more tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding more tests" />
+    <MESSAGE value="Moving driver.get(baseUrl); from individual @Test to @BeforeClass&#10;Moving test = ExtentTestManager.startTest(method.getName(), &quot;Wishlist from main page for not logged in test&quot;); from individual @Test to @BeforeMethod" />
+    <option name="LAST_COMMIT_MESSAGE" value="Moving driver.get(baseUrl); from individual @Test to @BeforeClass&#10;Moving test = ExtentTestManager.startTest(method.getName(), &quot;Wishlist from main page for not logged in test&quot;); from individual @Test to @BeforeMethod" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -316,11 +316,6 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="12" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/Utils/SeleniumUtils.java</url>
-          <line>52</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/Utils/ExtentTestListener.java</url>
           <line>43</line>
@@ -332,18 +327,8 @@
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/Pages/MainPage.java</url>
-          <line>84</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/Pages/MainPage.java</url>
-          <line>85</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/Tests/MainPageTests.java</url>
-          <line>19</line>
+          <url>file://$PROJECT_DIR$/src/test/java/Tests/ProductTests.java</url>
+          <line>39</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-field">
